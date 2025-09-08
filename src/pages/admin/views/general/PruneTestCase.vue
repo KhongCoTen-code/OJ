@@ -3,7 +3,7 @@
     <panel>
       <span slot="title">{{$t('m.Test_Case_Prune_Test_Case')}}
         <el-popover placement="right" trigger="hover">
-          These test cases are not owned by any problem, you can clean them safely.
+          Các test case này không thuộc về bài nào, bạn có thể dọn dẹp an toàn.
           <i slot="reference" class="el-icon-fa-question-circle import-user-icon"></i>
         </el-popover>
       </span>
@@ -31,7 +31,7 @@
         <el-button type="warning" size="small"
                    :loading="loading"
                    icon="el-icon-fa-trash"
-                   @click="deleteTestCase()">Delete All
+                   @click="deleteTestCase()"> Xoá tất cả
         </el-button>
       </div>
     </panel>

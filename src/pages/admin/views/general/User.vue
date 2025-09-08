@@ -82,8 +82,8 @@
     <Panel>
       <span slot="title">{{$t('m.Import_User')}}
         <el-popover placement="right" trigger="hover">
-          <p>Only support csv file without headers, check the <a
-            href="http://docs.onlinejudge.me/#/onlinejudge/guide/import_users">link</a> for details</p>
+          <p>Chỉ hỗ trợ tệp CSV không có dòng tiêu đề; hãy kiểm tra <a
+            href="http://docs.onlinejudge.me/#/onlinejudge/guide/import_users">Truy cập liên kết</a> để biết chi tiết</p>
           <i slot="reference" class="el-icon-fa-question-circle import-user-icon"></i>
         </el-popover>
       </span>
@@ -92,7 +92,7 @@
                  :show-file-list="false"
                  accept=".csv"
                  :before-upload="handleUsersCSV">
-        <el-button size="small" icon="el-icon-fa-upload" type="primary">Choose File</el-button>
+        <el-button size="small" icon="el-icon-fa-upload" type="primary">Chọn File</el-button>
       </el-upload>
       <template v-else>
         <el-table :data="uploadUsersPage">
@@ -120,11 +120,11 @@
         <div class="panel-options">
           <el-button type="primary" size="small"
                      icon="el-icon-fa-upload"
-                     @click="handleUsersUpload">Import All
+                     @click="handleUsersUpload">Nhập tất cả
           </el-button>
           <el-button type="warning" size="small"
                      icon="el-icon-fa-undo"
-                     @click="handleResetData">Reset Data
+                     @click="handleResetData">Đặt lại dữ liệu
           </el-button>
           <el-pagination
             class="page"
@@ -169,7 +169,7 @@
         </el-row>
 
         <el-form-item>
-          <el-button type="primary" @click="generateUser" icon="el-icon-fa-users" :loading="loadingGenerate">Generate & Export
+          <el-button type="primary" @click="generateUser" icon="el-icon-fa-users" :loading="loadingGenerate">Sinh user & xuất
           </el-button>
           <span class="userPreview" v-if="formGenerateUser.number_from && formGenerateUser.number_to &&
                                           formGenerateUser.number_from <= formGenerateUser.number_to">
@@ -265,7 +265,7 @@
         </el-row>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <cancel @click.native="showUserDialog = false">Cancel</cancel>
+        <cancel @click.native="showUserDialog = false">Thoát</cancel>
         <save @click.native="saveUser()"></save>
       </span>
     </el-dialog>
@@ -352,7 +352,8 @@
         })
       },
       deleteUsers (ids) {
-        this.$confirm('Sure to delete the user? The associated resources created by this user will be deleted as well, like problem, contest, announcement, etc.', 'confirm', {
+        this.$confirm('Bạn có chắc muốn xóa người dùng này? Tất cả tài nguyên do người này tạo (ví dụ: bài tập, cuộc thi, thông báo, v.v.) cũng sẽ bị xóa.',
+          'Xác nhận', {
           type: 'warning'
         }).then(() => {
           api.deleteUsers(ids.join(',')).then(res => {
@@ -369,7 +370,7 @@
       generateUser () {
         this.$refs['formGenerateUser'].validate((valid) => {
           if (!valid) {
-            this.$error('Please validate the error fields')
+            this.$error('Vui lòng kiểm tra và sửa các trường lỗi')
             return
           }
           this.loadingGenerate = true
@@ -378,7 +379,7 @@
             this.loadingGenerate = false
             let url = '/admin/generate_user?file_id=' + res.data.data.file_id
             utils.downloadFile(url).then(() => {
-              this.$alert('All users created successfully, the users sheets have downloaded to your disk.', 'Notice')
+              this.$alert('Tạo người dùng thành công. Tệp danh sách người dùng đã được tải về máy của bạn.', 'Thông báo')
             })
             this.getUserList(1)
           }).catch(() => {
@@ -394,7 +395,7 @@
             })
             let delta = results.data.length - data.length
             if (delta > 0) {
-              this.$warning(delta + ' users have been filtered due to empty value')
+              this.$warning(delta + ' người dùng đã bị loại do có giá trị trống')
             }
             this.uploadUsersCurrentPage = 1
             this.uploadUsers = data
