@@ -9,25 +9,24 @@
             {{$t('m.Where_is_the_input_and_the_output_answer_part_7')}} <code>printf</code> {{$t('m.Where_is_the_input_and_the_output_answer_part_8')}} <code>cout</code> {{$t('m.Where_is_the_input_and_the_output_answer_part_9')}} <code>{{$t('m.Runtime_Error')}}</code>.
           </p>
         </li>
-        <li>「稳点」是什么？
-          <p>「稳健 OnlineJudge」的稳点系统。
-		        您可以通过签到、做题来获取稳点，到达一定稳点可以升级，并获得等级称号。
+        <li>Điểm kinh nghiệm là gì?
+          <p>Chức năng này đánh giá thứ hạng của bạn trên hệ thống. Bạn có thể Ghi danh hàng ngày và làm các bài tập để tăng điểm kinh nghiệm của mình. Khi điểm đạt đến một mức độ, bạn sẽ nhận được danh hiệu tương ứng.
           </p>
-          <p>稳点计算说明:
-            <p>1、签到每次获得 <code>1</code> 稳点。在连续签到的第 <code>3、7、15、30、60、90、120、240、365</code> 天可以分别额外获得 <code>1、2、4、7、12、20、33、54、88</code> 稳点（没错，就是斐波那契数列）；</p>
-            <p>2、每道题目，<strong>第一次 AC </strong>时根据难度（Low、Mid、High），可分别获得 <code>3、8、15</code> 稳点。</p>
-          </p>
-          <p>
-            等级称号如下：
-            <p>0 - 99 稳点: <Tag color="#636e72" style="margin-right:-15px;">小白兔</Tag></p>
-            <p>100 - 199 稳点: <Tag color="primary" style="margin-right:-15px;">菜鸟</Tag></p>
-            <p>200 - 499 稳点: <Tag color="#6c5ce7" style="margin-right:-15px;">键盘虾</Tag></p>
-            <p>500 - 999 稳点: <Tag color="#1dd1a1" style="margin-right:-15px;">马农</Tag></p>
-            <p>1000 - 4999 稳点: <Tag color="#ff9f43" style="margin-right:-15px;">牛人</Tag></p>
-            <p>5000 - 9999 稳点: <Tag color="#ee5253" style="margin-right:-15px;">程序猿</Tag></p>
-            <p>10000 - ∞ 稳点: <Tag color="#222f3e" style="margin-right:-15px;">攻城狮</Tag></p>
-            <p>分别是0 - 6级（程序猿都是从 0 开始的嘛），每个等级都有自己的称号</p>
-          </p>
+          <div>Cách tính điểm kinh nghiệm:
+            <p>1. Nhận <code>1</code> cho mỗi lần ghi danh, vào các ngày thứ<code>3, 7, 15, 30, 60, 90, 120, 240, 365</code> của chuỗi, bạn sẽ nhận được<code>1,2,4, 7, 12, 20, 33, 54, 88</code> điểm kinh nghiệm（dãy Fibonacci đó)</p>
+            <p>2. Đối với mỗi bài tập bạn vượt qua ở lần đầu tiên, bạn sẽ nhận được <code>3, 8, 15</code> điểm tương ứng với độ khó của bài tập đó (Dễ, Trung bình, Khó)</p>
+          </div>
+          <div>
+            Quy đổi danh hiệu:
+            <p>0 - 99 điểm: <Tag color="gray" style="margin-right:-15px;">Newbie</Tag></p>
+            <p>100 - 199 điểm: <Tag color="green" style="margin-right:-15px;">Pupil</Tag></p>
+            <p>200 - 499 điểm: <Tag color="green" style="margin-right:-15px;">Specialist</Tag></p>
+            <p>500 - 999 điểm: <Tag color="blue" style="margin-right:-15px;">Expert</Tag></p>
+            <p>1000 - 4999 điểm: <Tag color="#a0a" style="margin-right:-15px;">Candidate master</Tag></p>
+            <p>5000 - 9999 điểm: <Tag color="#FF8C00" style="margin-right:-15px;">Master</Tag></p>
+            <p>Từ hơn 9999 điểm: <Tag color="red" style="margin-right:-15px;">Grandmaster</Tag></p>
+            <p>Chúng tôi chia làm 6 cấp danh hiệu, từ 0 - 6 và mỗi danh hiệu này sẽ có tiêu đề riêng</p>
+          </div>
         </li>
         <li>{{$t('m.What_is_the_meaning_of_submission_execution_time')}} 
         <p>{{$t('m.What_is_the_meaning_of_submission_execution_time_answer')}} 
@@ -43,7 +42,7 @@
           <p>{{$t('m.About_presentation_error_answer_part_1')}} <b>{{$t('m.last')}}</b> {{$t('m.About_presentation_error_answer_part_2')}} <code> {{$t('m.Wrong_Answer')}}</code>.</p>
         </li>
         <li>{{$t('m.How_to_report_bugs')}}
-          <p>{{$t('m.How_to_report_bugs_answer_part_1')}} <a href="https://github.com/Harry-zklcdc/OnlineJudge">Github</a>
+          <p>{{$t('m.How_to_report_bugs_answer_part_1')}} <a href="https://github.com/">Github</a>
             {{$t('m.How_to_report_bugs_answer_part_2')}}
           </p>
         </li>
@@ -54,6 +53,7 @@
 
 <script>
 </script>
+
 
 <style lang="less" scoped>
   .content {

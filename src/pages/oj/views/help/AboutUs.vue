@@ -3,7 +3,7 @@
     <div slot="title">{{$t('m.AboutUs')}}</div>
     <div v-katex v-html="aboutus.content" class="content markdown-body"></div>
 	<p></p>
-    <div class="content markdown-body update_time"><strong>last update time: </strong>{{aboutus.last_update_time | localtime }}</div>
+    <div class="content markdown-body update_time"><strong>Cập nhật lần cuối</strong>{{aboutus.last_update_time | localtime }}</div>
   </panel>
 </template>
 
