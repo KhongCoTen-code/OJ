@@ -4,41 +4,41 @@
       <div class="list">
         <el-table
           v-loading="loading"
-          element-loading-text="loading"
+          element-loading-text="Đang tải..."
           ref="table"
           :data="announcementList"
           style="width: 100%">
           <el-table-column
             width="100"
             prop="id"
-            label="ID">
+            label="Mã">
           </el-table-column>
           <el-table-column
             prop="title"
-            label="Title">
+            label="Tiêu đề">
           </el-table-column>
           <el-table-column
             prop="create_time"
-            label="CreateTime">
+            label="Ngày tạo">
             <template slot-scope="scope">
               {{ scope.row.create_time | localtime }}
             </template>
           </el-table-column>
           <el-table-column
             prop="last_update_time"
-            label="LastUpdateTime">
+            label="Cập nhật lần cuối">
             <template slot-scope="scope">
-              {{scope.row.last_update_time | localtime }}
+              {{ scope.row.last_update_time | localtime }}
             </template>
           </el-table-column>
           <el-table-column
             prop="created_by.username"
-            label="Author">
+            label="Tác giả">
           </el-table-column>
           <el-table-column
             width="100"
             prop="visible"
-            label="Visible">
+            label="Hiển thị">
             <template slot-scope="scope">
               <el-switch v-model="scope.row.visible"
                          active-text=""
@@ -49,16 +49,16 @@
           </el-table-column>
           <el-table-column
             fixed="right"
-            label="Option"
+            label="Tùy chọn"
             width="200">
             <div slot-scope="scope">
-              <icon-btn name="Edit" icon="edit" @click.native="openAnnouncementDialog(scope.row.id)"></icon-btn>
-              <icon-btn name="Delete" icon="trash" @click.native="deleteAnnouncement(scope.row.id)"></icon-btn>
+              <icon-btn name="Sửa" icon="edit" @click.native="openAnnouncementDialog(scope.row.id)"></icon-btn>
+              <icon-btn name="Xoá" icon="trash" @click.native="deleteAnnouncement(scope.row.id)"></icon-btn>
             </div>
           </el-table-column>
         </el-table>
         <div class="panel-options">
-          <el-button type="primary" size="small" @click="openAnnouncementDialog(null)" icon="el-icon-plus">Create</el-button>
+          <el-button type="primary" size="small" @click="openAnnouncementDialog(null)" icon="el-icon-plus">Tạo mới</el-button>
           <el-pagination
             v-if="!contestID"
             class="page"
@@ -70,7 +70,7 @@
         </div>
       </div>
     </Panel>
-    <!--对话框-->
+    <!-- Hộp thoại -->
     <el-dialog :title="announcementDialogTitle" :visible.sync="showEditAnnouncementDialog"
                @open="onOpenEditDialog" :close-on-click-modal="false">
       <el-form label-position="top">
@@ -93,8 +93,8 @@
         </div>
       </el-form>
       <span slot="footer" class="dialog-footer">
-          <cancel @click.native="showEditAnnouncementDialog = false"></cancel>
-          <save type="primary" @click.native="submitAnnouncement"></save>
+          <cancel @click.native="showEditAnnouncementDialog = false">Hủy</cancel>
+          <save type="primary" @click.native="submitAnnouncement">Lưu</save>
         </span>
     </el-dialog>
   </div>
@@ -112,28 +112,28 @@
     data () {
       return {
         contestID: '',
-        // 显示编辑公告对话框
+        // Hiển thị hộp thoại sửa/tạo thông báo
         showEditAnnouncementDialog: false,
-        // 公告列表
+        // Danh sách thông báo
         announcementList: [],
-        // 一页显示的公告数
+        // Số thông báo mỗi trang
         pageSize: 15,
-        // 总公告数
+        // Tổng số thông báo
         total: 0,
-        // 当前公告id
+        // ID thông báo hiện tại
         currentAnnouncementId: null,
         mode: 'create',
-        // 公告 (new | edit) model
+        // Model thông báo (tạo | sửa)
         announcement: {
           title: '',
           visible: true,
           content: ''
         },
-        // 对话框标题
-        announcementDialogTitle: 'Edit Announcement',
-        // 是否显示loading
+        // Tiêu đề hộp thoại
+        announcementDialogTitle: 'Sửa thông báo',
+        // Trạng thái loading
         loading: true,
-        // 当前页码
+        // Trang hiện tại
         currentPage: 0
       }
     },
@@ -149,7 +149,7 @@
           this.getAnnouncementList(1)
         }
       },
-      // 切换页码回调
+      // Callback đổi trang
       currentChange (page) {
         this.currentPage = page
         this.getAnnouncementList(page)
@@ -173,10 +173,9 @@
           this.loading = false
         })
       },
-      // 打开编辑对话框的回调
+      // Mở hộp thoại chỉnh sửa
       onOpenEditDialog () {
-        // todo 优化
-        // 暂时解决 文本编辑器显示异常bug
+        // Tạm thời sửa lỗi hiển thị editor
         setTimeout(() => {
           if (document.createEvent) {
             let event = document.createEvent('HTMLEvents')
@@ -187,11 +186,11 @@
           }
         }, 0)
       },
-      // 提交编辑
-      // 默认传入MouseEvent
+      // Gửi (tạo/sửa) thông báo
+      // Mặc định nhận MouseEvent
       submitAnnouncement (data = undefined) {
         let funcName = ''
-        if (!data.title) {
+        if (!data || !data.title) {
           data = {
             id: this.currentAnnouncementId,
             title: this.announcement.title,
@@ -208,16 +207,16 @@
         api[funcName](data).then(res => {
           this.showEditAnnouncementDialog = false
           this.init()
-        }).catch()
+        }).catch(() => {})
       },
-      // 删除公告
+      // Xoá thông báo
       deleteAnnouncement (announcementId) {
-        this.$confirm('Are you sure you want to delete this announcement?', 'Warning', {
-          confirmButtonText: 'Delete',
-          cancelButtonText: 'Cancel',
+        this.$confirm('Bạn có chắc muốn xoá thông báo này?', 'Cảnh báo', {
+          confirmButtonText: 'Xoá',
+          cancelButtonText: 'Hủy',
           type: 'warning'
         }).then(() => {
-          // then 为确定
+          // xác nhận
           this.loading = true
           let funcName = this.contestID ? 'deleteContestAnnouncement' : 'deleteAnnouncement'
           api[funcName](announcementId).then(res => {
@@ -225,7 +224,7 @@
             this.init()
           })
         }).catch(() => {
-          // catch 为取消
+          // huỷ
           this.loading = false
         })
       },
@@ -233,7 +232,7 @@
         this.showEditAnnouncementDialog = true
         if (id !== null) {
           this.currentAnnouncementId = id
-          this.announcementDialogTitle = 'Edit Announcement'
+          this.announcementDialogTitle = 'Sửa thông báo'
           this.announcementList.find(item => {
             if (item.id === this.currentAnnouncementId) {
               this.announcement.title = item.title
@@ -243,7 +242,7 @@
             }
           })
         } else {
-          this.announcementDialogTitle = 'Create Announcement'
+          this.announcementDialogTitle = 'Tạo thông báo'
           this.announcement.title = ''
           this.announcement.visible = true
           this.announcement.content = ''
