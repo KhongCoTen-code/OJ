@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" :class="oj-menu">
+    <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" class="oj-menu">
       <div class="logo"><span>{{website.website_name}}</span></div>
       <Menu-item name="/">
         <Icon type="md-home"></Icon>
@@ -55,24 +55,24 @@
         </Menu-item>
         <Menu-item name="/FAQ">
           {{$t('m.FAQ')}}
-		    </Menu-item>
-		    <Menu-item name="/AboutUs">
+        </Menu-item>
+        <Menu-item name="/AboutUs">
           {{$t('m.AboutUs')}}
         </Menu-item>
       </Submenu>
 
       <Dropdown @on-click="switchChange" class="ivu-menu-submenu">
         <div>
-		  <Icon type="ios-browsers"></Icon>
-		  &emsp;换肤
+          <Icon type="ios-browsers"></Icon>
+          &emsp;Đổi giao diện
           <Icon type="ios-arrow-down"></Icon>
         </div>
         <DropdownMenu slot="list">
-          <DropdownItem name="1"><Icon type="ios-browsers" color="#2d8cf0" />&emsp;胖次蓝</DropdownItem>
-          <DropdownItem name="2"><Icon type="ios-browsers" color="#f58f98" />&emsp;少女粉</DropdownItem>
-	        <DropdownItem name="4"><Icon type="ios-browsers" color="#d63031" />&emsp;姨妈红</DropdownItem>
-		      <DropdownItem name="5"><Icon type="ios-browsers" color="#00b894" />&emsp;原谅绿</DropdownItem>
-          <DropdownItem name="3"><Icon type="ios-browsers" color="#673AB7" />&emsp;基佬紫</DropdownItem>
+          <DropdownItem name="1"><Icon type="ios-browsers" color="#2d8cf0" />&emsp;Xanh lam</DropdownItem>
+          <DropdownItem name="2"><Icon type="ios-browsers" color="#f58f98" />&emsp;Hồng</DropdownItem>
+          <DropdownItem name="4"><Icon type="ios-browsers" color="#d63031" />&emsp;Đỏ</DropdownItem>
+          <DropdownItem name="5"><Icon type="ios-browsers" color="#00b894" />&emsp;Xanh lá</DropdownItem>
+          <DropdownItem name="3"><Icon type="ios-browsers" color="#673AB7" />&emsp;Tím</DropdownItem>
         </DropdownMenu>
       </Dropdown>
 
@@ -93,7 +93,7 @@
       </template>
       <template v-else>
         <Dropdown class="drop-menu" @on-click="handleRoute" placement="bottom" trigger="click">
-          <Poptip trigger="hover" :title="`当前 ${ profile.grade } 级`" :content="`当前稳点： ${ profile.experience } 点`" width="200px">
+          <Poptip trigger="hover" :title="`Cấp hiện tại: ${ profile.grade }`" :content="`Điểm kinh nghiệm: ${ profile.experience }`" width="200px">
             <Tag v-if="profile.user.title" :color="profile.user.title_color" style="margin-right:-15px;">{{ profile.user.title }}</Tag>
             <Tag v-else :color="color" style="margin-right:-15px;">{{ gradename }}</Tag>
           </Poptip>
@@ -146,22 +146,24 @@
           mode: mode
         })
       },
-      // 更换主题
+      // Đổi chủ đề
       switchChange (status) {
         let params = document.getElementById('app')
         params.className = 'theme' + status
         window.localStorage.setItem('app', document.getElementById('app').className)
       },
-      // 存储主题颜色
+      // Lưu chủ đề vào localStorage
       localStorageDate () {
         let memoryColor = window.localStorage.getItem('app')
         let params = document.getElementById('app')
-        params.className = memoryColor
+        if (memoryColor) {
+          params.className = memoryColor
+        }
       }
     },
     computed: {
       ...mapGetters(['website', 'modalStatus', 'user', 'profile', 'isAuthenticated', 'isAdminRole', 'color', 'gradename']),
-      // 跟随路由变化
+      // Theo đường dẫn hiện tại
       activeMenu () {
         return '/' + this.$route.path.split('/')[1]
       },
@@ -217,7 +219,7 @@
       float: right;
       margin-right: 10px;
     }
-	.change-menu {
+    .change-menu {
       float: right;
       margin-right: 130px;
       position: absolute;
@@ -238,5 +240,4 @@
   .ivu-btn-ghost {
     color: #495060;
   }
-  
 </style>
