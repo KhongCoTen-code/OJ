@@ -1,10 +1,10 @@
 <template>
   <div>
     <Panel v-if="!isContest" shadow style="float:right; margin-right:0%; width:23%; hight:200px">
-      <div style="margin:0 10%; font-size:14px; text-align:left; width:100%; line-height:16px; background: transparent; color:#636e72;">今天是：</div>
+      <div style="margin:0 10%; font-size:14px; text-align:left; width:100%; line-height:16px; background: transparent; color:#636e72;">Hôm nay là:</div>
       <Layout>
         <Sider style="width:25%; min-width:25%; max-width:25%; flex: 0 0 25%; background: transparent;">
-          <div style="margin:50% 65%; font-size:18px; text-align:center; width:26px; line-height:28px; background: transparent; color:#636e72;">{{nowMouth}}月</div>
+          <div style="margin:50% 35%; font-size:18px; text-align:center; width:auto; line-height:28px; background: transparent; color:#636e72;">Tháng {{nowMouth}}</div>
         </Sider>
         <Content style="background: transparent;">
           <div style="margin:0 auto; font-size:120px; text-align:center; background: transparent; color:rgb(73, 80, 96);">
@@ -15,11 +15,13 @@
           <div style="margin:50% 15%; font-size:18px; text-align:center; width:26px; line-height:28px; background: transparent; color:#636e72;">{{nowWeek}}</div>
         </Sider>
       </Layout>
-      <div v-if="days" style="margin:0 auto; margin-top:-30px; margin-bottom:15px; font-size:12px; text-align:center; width:160px; line-height:16px; background: transparent; color:#636e72;">您已在「{{website.website_name}}」<br>连续签到了 <strong>{{days}}</strong> 天</div>
+      <div v-if="days" style="margin:0 auto; margin-top:-30px; margin-bottom:15px; font-size:12px; text-align:center; width:160px; line-height:16px; background: transparent; color:#636e72;">
+        Bạn đã điểm danh liên tiếp trên 「{{website.website_name}}」<br>được <strong>{{days}}</strong> ngày
+      </div>
       <div style="margin-top:-10px; margin:0 auto; font-size:14px; text-align:center; width:80%; line-height:16px; background: transparent; color:#636e72;">{{word}}</div>
-      <Button v-if="!SighinStatus" type="primary" icon="ios-alarm" @click="Sighin" long style="margin-top:20px; margin-bottom:20px; margin-left:10%; width:80%;">签到</Button>
+      <Button v-if="!SighinStatus" type="primary" icon="ios-alarm" @click="Sighin" long style="margin-top:20px; margin-bottom:20px; margin-left:10%; width:80%;">Điểm danh</Button>
       <Button v-else type="primary" icon="ios-alarm" long disabled style="margin-top:20px; margin-bottom:20px; margin-left:10%; width:80%;">
-          签到
+          Điểm danh
       </Button>
     </Panel>
 
@@ -144,10 +146,12 @@
       },
       setNowTimes () {
         let myDate = new Date()
-        let weeks = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
-        let mouth = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二']
+        // Thứ trong tiếng Việt
+        let weeks = ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy']
+        // Tháng dạng số
+        let months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
         this.nowDate = String(myDate.getDate() < 10 ? '0' + myDate.getDate() : myDate.getDate())
-        this.nowMouth = mouth[myDate.getMonth()]
+        this.nowMouth = months[myDate.getMonth()]
         this.nowWeek = weeks[myDate.getDay()]
         this.nowYear = myDate.getFullYear()
       },
@@ -165,14 +169,14 @@
         api.UserSighin().then(res => {
           if (res.data.data === 'Singined') {
             this.$Notice.error({
-              title: '签到失败',
-              desc: '稳健佬，您已经签过到了呀 ~ 明天再来哦'
+              title: 'Điểm danh thất bại',
+              desc: 'Bạn đã điểm danh rồi ~ hãy quay lại vào ngày mai nhé'
             })
             this.isSighin()
           } else {
             this.$Notice.success({
-              title: '签到成功',
-              desc: '恭喜稳健佬，获得 ' + res.data.data.experience + ' 稳点，明天记得来签到哦'
+              title: 'Điểm danh thành công',
+              desc: 'Chúc mừng bạn, nhận được ' + res.data.data.experience + ' điểm. Nhớ điểm danh vào ngày mai nhé!'
             })
             this.days += 1
             this.SighinStatus = true
@@ -195,6 +199,7 @@
     }
   }
 </script>
+
 
 <style scoped lang="less">
   .announcements-container {
