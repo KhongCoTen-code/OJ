@@ -28,13 +28,13 @@
       </template>
     </div>
 
-    <p class="section-title">{{$t('m.Two_Factor_Authentication')}}</p>
+    <p class="section-title" title="Có thể sử dụng ứng dụng Google Authenticator">{{$t('m.Two_Factor_Authentication')}}</p>
     <div class="mini-container setting-content">
       <Form>
         <Alert v-if="TFAOpened"
                type="success"
                class="notice"
-               showIcon>You have enabled two-factor authentication.
+               showIcon>Bạn đã bật chức năng xác minh 2 bước.
         </Alert>
         <FormItem v-if="!TFAOpened">
           <div class="oj-relative">
@@ -44,12 +44,12 @@
         </FormItem>
         <template v-if="!loadingQRcode">
           <FormItem style="width: 250px">
-            <Input v-model="formTwoFactor.code" placeholder="Enter the code from your application"/>
+            <Input v-model="formTwoFactor.code" placeholder="Nhập mã xác minh"/>
           </FormItem>
           <Button type="primary"
                   :loading="loadingBtn"
                   @click="updateTFA(false)"
-                  v-if="!TFAOpened">Open TFA
+                  v-if="!TFAOpened">Bật TFA
           </Button>
           <Button type="error"
                   :loading="loadingBtn"
