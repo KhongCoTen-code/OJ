@@ -224,7 +224,7 @@ export const m = {
   // ExperienceRank.vue
   Experience: 'Kinh nghiệm',
   Experience_Rank: 'Experience Rank',
-  Experience_Ranklist: 'Bảng xếp hạng theo điểm kinh nghiệm',
+  Experience_Ranklist: 'Experience Ranklist',
   // ProblemList.vue
   Problem_List: 'Danh sách bài tập',
   High: 'Khó',
