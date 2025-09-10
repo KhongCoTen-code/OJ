@@ -1,11 +1,13 @@
 <template>
   <div id="header">
     <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" class="oj-menu">
-      <div class="logo"><span>{{website.website_name}}</span></div>
-      <Menu-item name="/">
+      <!-- <div class="logo"><span>{{website.website_name}}</span></div> -->
+      <div class="logo" title=""><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
+
+      <!-- <Menu-item name="/">
         <Icon type="md-home"></Icon>
         {{$t('m.Home')}}
-      </Menu-item>
+      </Menu-item> -->
       <Menu-item name="/problem">
         <Icon type="ios-keypad"></Icon>
         {{$t('m.NavProblems')}}
