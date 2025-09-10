@@ -189,11 +189,11 @@
   height: 60px;
   width: 100%;
   z-index: 1000;
-  background-color: #0065BD;
+  background-color: #0091CE; // màu nền giống ảnh
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
 
   .oj-menu, .ivu-menu, .ivu-menu-horizontal {
-    background: #0065BD !important;
+    background: #0091CE !important;
     color: #fff !important;
     height: 56px !important;
     line-height: 56px !important;
@@ -202,17 +202,26 @@
     box-shadow: none !important;
   }
 
-  // XÓA DÒNG KẺ TRẮNG DƯỚI NAVBAR
   .ivu-menu-horizontal:after,
   .ivu-menu:after {
     display: none !important;
   }
 
-  // ĐỔI MÀU TOÀN BỘ TEXT MENU THÀNH TRẮNG
+  // Toàn bộ text menu/submenu đều trắng
   .ivu-menu-item,
   .ivu-menu-submenu-title,
   .ivu-menu-submenu .ivu-menu-item,
-  .ivu-menu-submenu .ivu-menu-submenu-title {
+  .ivu-menu-submenu .ivu-menu-submenu-title,
+  .ivu-menu-submenu .ivu-menu-item span,
+  .ivu-menu-submenu .ivu-menu-submenu-title span,
+  .ivu-dropdown,
+  .ivu-dropdown span,
+  .ivu-dropdown-menu,
+  .ivu-dropdown-item,
+  .ivu-dropdown-item span,
+  .drop-menu-title,
+  .btn-menu,
+  .change-menu-title {
     color: #fff !important;
     background: transparent !important;
   }
@@ -228,34 +237,37 @@
   .ivu-menu-item-active,
   .ivu-menu-item-selected,
   .ivu-menu-item:hover,
-  .ivu-menu-submenu-title:hover {
-    color: #ffd700 !important;
-    background: #00509e !important;
+  .ivu-menu-submenu-title:hover,
+  .ivu-menu-submenu .ivu-menu-item:hover {
+    color: #00e6ff !important; // xanh nhạt khi hover
+    background: #0080b7 !important;
   }
 
-  // Bỏ hiệu ứng hover trắng xóa ở phần tài khoản (Dropdown)
+  // Dropdown menu
+  .ivu-dropdown-menu {
+    background: #0091CE !important;
+    color: #fff !important;
+    border: none !important;
+  }
+  .ivu-dropdown-item,
+  .ivu-dropdown-item span {
+    color: #fff !important;
+    background: #0091CE !important;
+  }
+  .ivu-dropdown-item:hover,
+  .ivu-dropdown-item:focus,
+  .ivu-dropdown-item-active {
+    color: #00e6ff !important;
+    background: #0080b7 !important;
+  }
+
+  // Bỏ hiệu ứng hover trắng xóa ở phần tài khoản
   .drop-menu .ivu-btn-text,
   .drop-menu .ivu-btn-text:hover,
   .drop-menu .ivu-btn-text:focus,
   .drop-menu .ivu-btn-text:active {
     color: #fff !important;
     background: transparent !important;
-  }
-
-  .ivu-dropdown-menu {
-    background: #0065BD !important;
-    color: #fff !important;
-  }
-  .ivu-dropdown-item,
-  .ivu-dropdown-item span {
-    color: #fff !important;
-    background: #0065BD !important;
-  }
-  .ivu-dropdown-item:hover,
-  .ivu-dropdown-item:focus,
-  .ivu-dropdown-item-active {
-    color: #ffd700 !important;
-    background: #00509e !important;
   }
 
   .logo {
