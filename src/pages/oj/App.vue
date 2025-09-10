@@ -14,7 +14,7 @@
           <a href="/judger" title="Thông tin máy chấm">Trình chấm</a> &nbsp;&nbsp;-&nbsp;&nbsp;
           <a href="/about" title="Về chúng tôi">Giới thiệu</a>
         </div>
-        <p>Powered by <a href="https://github.com/">OnlineJudge</a>&nbsp; <span v-if="version">Version: {{ version }}</span></p>
+        <p>Powered by <a href="https://github.com/">OnlineJudge</a>&nbsp; </p>
       </div>
     </div>
 	<BackTop></BackTop>
