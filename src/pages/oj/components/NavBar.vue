@@ -182,9 +182,10 @@
 
 
 <style lang="less" scoped>
-.ivu-menu-item,  .ivu-dropdown {
+.ivu-menu-item,  .ivu-dropdown, .ivu-submenu, .ivu-icon  {
   color: white !important;
 }
+
 
 #header {
   min-width: 300px;
