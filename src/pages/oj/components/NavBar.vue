@@ -66,7 +66,7 @@
           &emsp;Đổi giao diện
           <Icon type="ios-arrow-down"></Icon>
         </div>
-        <DropdownMenu slot="list">
+        <DropdownMenu slot="list" class="white">
           <DropdownItem name="1"><Icon type="ios-browsers" color="#2d8cf0" />&emsp;Xanh lam</DropdownItem>
           <DropdownItem name="2"><Icon type="ios-browsers" color="#f58f98" />&emsp;Hồng</DropdownItem>
           <DropdownItem name="4"><Icon type="ios-browsers" color="#d63031" />&emsp;Đỏ</DropdownItem>
@@ -253,7 +253,7 @@
 }
 
 .ivu-btn-ghost {
-  color: #495060;
+  color: #36ebf8;
 }
 </style>
 
