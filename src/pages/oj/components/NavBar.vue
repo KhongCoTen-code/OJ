@@ -207,6 +207,14 @@
     color: #fff !important; // Đổi màu chữ các item
   }
 
+  .ivu-menu-item-active,
+  .ivu-menu-item-selected,
+  .ivu-menu-item:hover,
+  .ivu-menu-submenu-title:hover {
+    color: #06cdff !important; // Màu chữ khi hover/chọn (vàng, bạn có thể đổi)
+    background: #258ffa !important; // Nền khi hover/chọn (đậm hơn)
+  }
+  
   .logo {
     margin-left: 2%;
     margin-right: 2%;
@@ -226,6 +234,7 @@
     right: 10px;
     &-title {
       font-size: 18px;
+       color: #fff !important;
     }
   }
   .btn-menu {
