@@ -4,15 +4,16 @@
       <!-- <div class="logo"><span>{{website.website_name}}</span></div> -->
       <!-- <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo-ny.png" height="60px" alt="Luyện Code Online - Học lập trình tương tác trực tuyến"></a></div> -->
       <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
+      
       <Menu-item name="/problem">
         <Icon type="ios-keypad"></Icon>
         {{$t('m.NavProblems')}}
       </Menu-item>
-      <Menu-item name="/contest" >
+      <Menu-item name="/contest">
         <Icon type="md-trophy"></Icon>
         {{$t('m.Contests')}}
       </Menu-item>
-      <Menu-item name="/status" >
+      <Menu-item name="/status">
         <Icon type="ios-pulse"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
@@ -28,41 +29,41 @@
           {{$t('m.OI_Rank')}}
         </Menu-item>
         <Menu-item name="/experience-rank">
-          {{$t('m.Experience_Rank')}}
+          {{$t('m.Experience_Ranklist')}}
         </Menu-item>
       </Submenu>
-      <Submenu name="onlineapp">
+      <Submenu name="onlineapp" class="app">
         <template slot="title">
           <Icon type="ios-cloud" />
           {{$t('m.App')}}
         </template>
-        <Menu-item name="/IDE">
+        <Menu-item name="/IDE" class="ide">
           {{$t('m.IDE')}}
         </Menu-item>
         <Menu-item v-if="website.allow_forum_post" name="/Forum">
           {{$t('m.Forum')}}
         </Menu-item>
       </Submenu>
-        <Submenu name="about">
+      <Submenu name="about">
         <template slot="title">
           <Icon type="md-information-circle"></Icon>
           {{$t('m.About')}}
         </template>
         <Menu-item name="/about">
-          {{$t('m.AboutUs')}}
-        </Menu-item>
-        <Menu-item name="/judger">
           {{$t('m.Judger')}}
         </Menu-item>
         <Menu-item name="/FAQ">
           {{$t('m.FAQ')}}
+        </Menu-item>
+        <Menu-item name="/AboutUs">
+          {{$t('m.AboutUs')}}
         </Menu-item>
       </Submenu>
 
       <Dropdown @on-click="switchChange" class="ivu-menu-submenu">
         <div>
           <Icon type="ios-browsers"></Icon>
-          &emsp;Giao diện
+          &emsp;Đổi giao diện
           <Icon type="ios-arrow-down"></Icon>
         </div>
         <DropdownMenu slot="list">
@@ -73,15 +74,16 @@
           <DropdownItem name="3"><Icon type="ios-browsers" color="#673AB7" />&emsp;Tím</DropdownItem>
         </DropdownMenu>
       </Dropdown>
-      
+
       <template v-if="!isAuthenticated">
         <div class="btn-menu">
-          <Button
+          <Button type="ghost"
                   ref="loginBtn"
                   shape="circle"
                   @click="handleBtnClick('login')">{{$t('m.Login')}}
           </Button>
           <Button v-if="website.allow_register"
+                  type="ghost"
                   shape="circle"
                   @click="handleBtnClick('register')"
                   style="margin-left: 5px;">{{$t('m.Register')}}
@@ -90,7 +92,7 @@
       </template>
       <template v-else>
         <Dropdown class="drop-menu" @on-click="handleRoute" placement="bottom" trigger="click">
-          <Poptip trigger="hover" :title="`Cấp độ: ${ profile.grade }`" :content="`Điểm kinh nghiệm: ${ profile.experience }`" width="200px">
+          <Poptip trigger="hover" :title="`Cấp hiện tại: ${ profile.grade }`" :content="`Điểm kinh nghiệm: ${ profile.experience }`" width="200px">
             <Tag v-if="profile.user.title" :color="profile.user.title_color" style="margin-right:-15px;">{{ profile.user.title }}</Tag>
             <Tag v-else :color="color" style="margin-right:-15px;">{{ gradename }}</Tag>
           </Poptip>
@@ -114,7 +116,6 @@
     </Modal>
   </div>
 </template>
-
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
@@ -185,7 +186,9 @@
 .ivu-menu-item,  .ivu-dropdown, .ivu-submenu, .ivu-icon  {
   color: white !important;
 }
-
+.ide, .app{
+  color: white !important;
+}
 
 #header {
   min-width: 300px;
