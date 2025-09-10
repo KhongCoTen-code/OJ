@@ -1,32 +1,38 @@
 <template>
-  <Row type="flex" justify="space-around">
-    <Col :span="20" id="status">
-      <Alert :type="status.color" showIcon>
+  <Row type="flex" :gutter="20">
+    <Col :span="19" id="status">
+      <Alert v-if="status.type !== 'primary'" :type="status.type" show-icon>
         <span class="title">{{$t('m.' + status.statusName.replace(/ /g, "_"))}}</span>
         <div slot="desc" class="content">
-          <template v-if="isCE">
-            <pre>{{submission.statistic_info.err_info}}</pre>
-          </template>
-          <template v-else>
+          <template>
+            <pre  v-if="isCE">{{submission.statistic_info.err_info}}</pre>
+            <span v-if="submission.problem && submission.contest">{{$t('m.Problem')}}: <a :href="'/contest/' + submission.contest + '/problem/' + submission.problem" style="color: #495060;">{{submission.problem}}</a></span>
+            <span v-else-if="submission.problem">{{$t('m.Problem')}}: <a :href='/problem/ + submission.problem' style="color: #495060;">{{submission.problem}}</a></span>
             <span>{{$t('m.Time')}}: {{submission.statistic_info.time_cost | submissionTime}}</span>
             <span>{{$t('m.Memory')}}: {{submission.statistic_info.memory_cost | submissionMemory}}</span>
             <span>{{$t('m.Lang')}}: {{submission.language}}</span>
-            <span>{{$t('m.Author')}}: {{submission.username}}</span>
+            <span>{{$t('m.Author')}}: <a :href="'/user-home?username=' + submission.username" style="color: #495060;">{{submission.username}}</a></span>
           </template>
         </div>
       </Alert>
-    </Col>
-
-    <!--后台返info就显示出来， 权限控制放后台 -->
-    <Col v-if="submission.info && !isCE" :span="20">
-      <Table stripe :loading="loading" :disabled-hover="true" :columns="columns" :data="submission.info.data"></Table>
-    </Col>
-
-    <Col :span="20">
+      <Alert v-else show-icon>
+        <span class="title">{{$t('m.' + status.statusName.replace(/ /g, "_"))}}</span>
+        <div slot="desc" class="content">
+          <template>
+            <pre  v-if="isCE">{{submission.statistic_info.err_info}}</pre>
+            <span v-if="submission.problem && submission.contest">{{$t('m.Problem')}}: <a :href="'/contest/' + submission.contest + '/problem/' + submission.problem" style="color: #495060;">{{submission.problem}}</a></span>
+            <span v-else-if="submission.problem">{{$t('m.Problem')}}: <a :href='/problem/ + submission.problem' style="color: #495060;">{{submission.problem}}</a></span>
+            <span>{{$t('m.Time')}}: {{submission.statistic_info.time_cost | submissionTime}}</span>
+            <span>{{$t('m.Memory')}}: {{submission.statistic_info.memory_cost | submissionMemory}}</span>
+            <span>{{$t('m.Lang')}}: {{submission.language}}</span>
+            <span>{{$t('m.Author')}}: <a :href="'/user-home?username=' + submission.username" style="color: #495060;">{{submission.username}}</a></span>
+          </template>
+        </div>
+      </Alert>
+      <Table v-if="submission.info && !isCE" :span="15" stripe :loading="loading" :disabled-hover="true" :columns="columns" :data="submission.info.data">
+      </Table>
       <Highlight :code="submission.code" :language="submission.language" :border-color="status.color"></Highlight>
-    </Col>
-    <Col v-if="submission.can_unshare" :span="20">
-      <div id="share-btn">
+      <div v-if="submission.can_unshare" :span="15" id="share-btn">
         <Button v-if="submission.shared"
                 type="warning" size="large" @click="shareSubmission(false)">
           {{$t('m.UnShare')}}
@@ -37,13 +43,28 @@
         </Button>
       </div>
     </Col>
+    <Col :span="5" :gutter="20">
+      <Panel shadow style="padding-top: 0px;padding-bottom: 10px;min-height: 400px;">
+        <div slot="title" style="margin-left: -10px;margin-bottom: -10px;">{{$t('m.Ranklist_Title')}}</div>
+        <ol style="margin-left: 40px;margin-bottom: 20px;">
+          <li v-for="u in dataRank" :key="u.id">
+            <a :style="'font-weight: 600;color: ' + u.color" :href="'/user-home?username=' + u.user.username"
+               :title=" u.title + ' ' + u.user.username">
+            {{u.user.username}}
+            </a> - {{u.accepted_number}} bài
+          </li>
+        </ol>
+      </Panel>
+      
+        
+    </Col>
   </Row>
 
 </template>
 
 <script>
   import api from '@oj/api'
-  import {JUDGE_STATUS} from '@/utils/constants'
+  import {RULE_TYPE, JUDGE_STATUS, USER_GRADE} from '@/utils/constants'
   import utils from '@/utils/utils'
   import Highlight from '@/pages/oj/components/Highlight'
 
@@ -54,6 +75,8 @@
     },
     data () {
       return {
+        dataRank: [],
+        rankLimit: 15,
         columns: [
           {
             title: this.$i18n.t('m.ID'),
@@ -103,6 +126,7 @@
     },
     mounted () {
       this.getSubmission()
+      this.getRankData()
     },
     methods: {
       getSubmission () {
@@ -142,21 +166,38 @@
             }
           }
           this.submission = data
+          this.submission['problem'] = this.$route.query.problem
+          this.submission['contest'] = this.$route.query.contest
         }, () => {
           this.loading = false
+        })
+      },
+      getRankData () {
+        api.getUserRank(0, this.rankLimit, RULE_TYPE.ACM).then(res => {
+          this.dataRank = res.data.data.results
+          for (let i in this.dataRank) {
+            this.dataRank[i]['color'] = USER_GRADE[this.dataRank[i].grade].color
+            this.dataRank[i]['title'] = USER_GRADE[this.dataRank[i].grade].name
+          }
+        }).catch(() => {
         })
       },
       shareSubmission (shared) {
         let data = {id: this.submission.id, shared: shared}
         api.updateSubmission(data).then(res => {
           this.getSubmission()
-          this.$success(this.$i18n.t('m.Succeeded'))
+          if (shared) {
+            this.$success('Người khác có thể xem lời giải của bạn!')
+          } else {
+            this.$success('Người khác không thể xem lời giải của bạn!')
+          }
         }, () => {
         })
       }
     },
     computed: {
       status () {
+        console.log(JUDGE_STATUS[this.submission.result])
         return {
           type: JUDGE_STATUS[this.submission.result].type,
           statusName: JUDGE_STATUS[this.submission.result].name,
@@ -203,11 +244,42 @@
   #share-btn {
     float: right;
     margin-top: 5px;
-    margin-right: 10px;
+    margin-right: 0px;
   }
 
   pre {
     border: none;
     background: none;
+  }
+  .sticky {
+    margin-top: 20px;
+  }
+  div.free-course > .title {
+    background: green;
+    text-transform: uppercase;
+    color: white;
+    margin: 0px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  div.free-course > ul{
+    border: solid 4px green;
+    padding: 10px;
+    margin-top: 0px;
+  }
+  div.free-course > ul li::before {
+    content: "📚";
+    margin: 0px 10px 0 0px;
+  }
+  div.free-course > ul > li {
+    font-size: 1.2em;
+    padding-top: 10px;
+    list-style: none;
+  }
+  div.free-course > ul > li > a {
+    text-decoration:none;
+    color: inherit;
+    // font-family: monospace, sans-serif;
   }
 </style>
