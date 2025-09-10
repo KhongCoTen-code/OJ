@@ -13,7 +13,7 @@
         {{$t('m.Contests')}}
       </Menu-item>
       <Menu-item name="/status" >
-        <Icon type="md-cloud-upload"></Icon>
+        <Icon type="ios-pulse"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
       <Submenu name="rank">
@@ -181,61 +181,71 @@
 </script>
 
 <style lang="less" scoped>
-  #header {
-    min-width: 300px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: auto;
-    width: 100%;
-    z-index: 1000;
-    background-color: #fff;
-    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
-    .oj-menu {
-      background: #fdfdfd;
-    }
+#header {
+  min-width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 56px; // Đặt chiều cao cố định
+  width: 100%;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
 
-    .logo {
-      margin-left: 2%;
-      margin-right: 2%;
-      font-size: 20px;
-      float: left;
-      line-height: 60px;
-    }
+  .oj-menu, .ivu-menu, .ivu-menu-horizontal {
+    background: #fdfdfd;
+    height: 56px !important; // Đặt chiều cao menu
+    line-height: 56px !important; // Căn giữa các item
+    border-bottom: none !important; // Xóa đường kẻ mặc định
+    margin-bottom: 0 !important; // Xóa khoảng trắng dưới
+    box-shadow: none !important;
+  }
 
-    .drop-menu {
-      float: right;
-      margin-right: 30px;
-      position: absolute;
-      right: 10px;
-      &-title {
-        font-size: 18px;
-      }
-    }
-    .btn-menu {
-      font-size: 16px;
-      float: right;
-      margin-right: 10px;
-    }
-    .change-menu {
-      float: right;
-      margin-right: 130px;
-      position: absolute;
-      right: 10px;
-      &-title {
-        font-size: 18px;
-      }
+  .logo {
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: 20px;
+    float: left;
+    line-height: 56px;
+    img {
+      vertical-align: middle;
+      height: 40px; // Giảm chiều cao logo
     }
   }
 
-  .modal {
+  .drop-menu {
+    float: right;
+    margin-right: 30px;
+    position: absolute;
+    right: 10px;
     &-title {
       font-size: 18px;
-      font-weight: 600;
     }
   }
-
-  .ivu-btn-ghost {
-    color: #495060;
+  .btn-menu {
+    font-size: 16px;
+    float: right;
+    margin-right: 10px;
   }
+  .change-menu {
+    float: right;
+    margin-right: 130px;
+    position: absolute;
+    right: 10px;
+    &-title {
+      font-size: 18px;
+    }
+  }
+}
+
+.modal {
+  &-title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.ivu-btn-ghost {
+  color: #495060;
+}
 </style>
