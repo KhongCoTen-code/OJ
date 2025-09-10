@@ -189,7 +189,7 @@
   height: 56px; // Đặt chiều cao cố định
   width: 100%;
   z-index: 1000;
-  background-color: #fff;
+  background-color: #0065BD;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
 
   .oj-menu, .ivu-menu, .ivu-menu-horizontal {
@@ -208,8 +208,8 @@
     float: left;
     line-height: 56px;
     img {
-      vertical-align: middle;
-      height: 40px; // Giảm chiều cao logo
+      // vertical-align: middle;
+      // height: 40px; // Giảm chiều cao logo
     }
   }
 
