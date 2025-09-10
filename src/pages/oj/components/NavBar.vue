@@ -307,6 +307,21 @@
       color: #fff !important;
     }
   }
+
+  // Đảm bảo mọi trạng thái của submenu đều trắng
+  .ivu-menu-submenu-title,
+  .ivu-menu-submenu-title span,
+  .ivu-menu-submenu .ivu-menu-submenu-title,
+  .ivu-menu-submenu .ivu-menu-submenu-title span {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+
+  // Đảm bảo icon trong submenu cũng trắng
+  .ivu-menu-submenu-title .ivu-icon,
+  .ivu-menu-submenu .ivu-menu-submenu-title .ivu-icon {
+    color: #fff !important;
+  }
 }
 
 .modal {
