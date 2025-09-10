@@ -5,15 +5,15 @@
       <!-- <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo-ny.png" height="60px" alt="Luyện Code Online - Học lập trình tương tác trực tuyến"></a></div> -->
       <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
       
-      <Menu-item name="/problem">
+      <Menu-item name="/problem" class="white">
         <Icon type="ios-keypad"></Icon>
         {{$t('m.NavProblems')}}
       </Menu-item>
-      <Menu-item name="/contest">
+      <Menu-item name="/contest" class="white">
         <Icon type="md-trophy"></Icon>
         {{$t('m.Contests')}}
       </Menu-item>
-      <Menu-item name="/status">
+      <Menu-item name="/status "class="white">
         <Icon type="ios-pulse"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
@@ -37,7 +37,7 @@
           <Icon type="ios-cloud" />
           {{$t('m.App')}}
         </template>
-        <Menu-item name="/IDE" class="ide">
+        <Menu-item name="/IDE" >
           {{$t('m.IDE')}}
         </Menu-item>
         <Menu-item v-if="website.allow_forum_post" name="/Forum">
@@ -99,7 +99,7 @@
           <Button type="text" class="drop-menu-title">{{ user.username }}
             <Icon type="md-arrow-dropdown"></Icon>
           </Button>
-          <Dropdown-menu slot="list">
+          <Dropdown-menu slot="list" class="white">
             <Dropdown-item name="/user-home">{{$t('m.MyHome')}}</Dropdown-item>
             <Dropdown-item name="/status?myself=1">{{$t('m.MySubmissions')}}</Dropdown-item>
             <Dropdown-item name="/setting/profile">{{$t('m.Settings')}}</Dropdown-item>
@@ -184,7 +184,7 @@
 
 <style lang="less" scoped>
 
-.white,.ivu-menu-item{
+.white{
   color: white !important;
 }
 
