@@ -260,12 +260,12 @@
   color: #36ebf8;
 }
 
-.drop-menu .ivu-btn-text,
-.drop-menu .ivu-btn-text:hover,
-.drop-menu .ivu-btn-text:focus,
-.drop-menu .ivu-btn-text:active {
-  color: #fff !important;
-  background: transparent !important;
-}
+// .drop-menu .ivu-btn-text,
+// .drop-menu .ivu-btn-text:hover,
+// .drop-menu .ivu-btn-text:focus,
+// .drop-menu .ivu-btn-text:active {
+//   color: #fff !important;
+//   background: transparent !important;
+// }
 </style>
 
