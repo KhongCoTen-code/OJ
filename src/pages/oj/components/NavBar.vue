@@ -186,19 +186,25 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 56px; // Đặt chiều cao cố định
+  height: 56px;
   width: 100%;
   z-index: 1000;
-  background-color: #0065BD;
+  background-color: #0065BD; // Đổi màu nền navbar
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
 
   .oj-menu, .ivu-menu, .ivu-menu-horizontal {
-    background: #fdfdfd;
-    height: 56px !important; // Đặt chiều cao menu
-    line-height: 56px !important; // Căn giữa các item
-    border-bottom: none !important; // Xóa đường kẻ mặc định
-    margin-bottom: 0 !important; // Xóa khoảng trắng dưới
+    background: #0065BD !important; // Đổi màu nền menu
+    color: #fff !important; // Đổi màu chữ menu
+    height: 56px !important;
+    line-height: 56px !important;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
     box-shadow: none !important;
+  }
+
+  .ivu-menu-item,
+  .ivu-menu-submenu-title {
+    color: #fff !important; // Đổi màu chữ các item
   }
 
   .logo {
@@ -208,7 +214,7 @@
     float: left;
     line-height: 56px;
     img {
-      // vertical-align: middle;
+      vertical-align: middle;
       // height: 40px; // Giảm chiều cao logo
     }
   }
@@ -226,6 +232,7 @@
     font-size: 16px;
     float: right;
     margin-right: 10px;
+    color: #fff !important;
   }
   .change-menu {
     float: right;
@@ -234,6 +241,7 @@
     right: 10px;
     &-title {
       font-size: 18px;
+      color: #fff !important;
     }
   }
 }
