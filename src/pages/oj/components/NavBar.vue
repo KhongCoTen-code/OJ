@@ -186,7 +186,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: auto;
+  height: 60px;
   width: 100%;
   z-index: 1000;
   background-color: #0065BD;
@@ -202,7 +202,20 @@
     box-shadow: none !important;
   }
 
+  // XÓA DÒNG KẺ TRẮNG DƯỚI NAVBAR
+  .ivu-menu-horizontal:after,
+  .ivu-menu:after {
+    display: none !important;
+  }
 
+  // ĐỔI MÀU TOÀN BỘ TEXT MENU THÀNH TRẮNG
+  .ivu-menu-item,
+  .ivu-menu-submenu-title,
+  .ivu-menu-submenu .ivu-menu-item,
+  .ivu-menu-submenu .ivu-menu-submenu-title {
+    color: #fff !important;
+    background: transparent !important;
+  }
 
   // Đổi màu icon thành trắng
   .ivu-icon,
@@ -216,8 +229,8 @@
   .ivu-menu-item-selected,
   .ivu-menu-item:hover,
   .ivu-menu-submenu-title:hover {
-     color: #06cdff !important; // Màu chữ khi hover/chọn (vàng, bạn có thể đổi)
-    background: #258ffa !important; // Nền khi hover/chọn (đậm hơn)
+    color: #ffd700 !important;
+    background: #00509e !important;
   }
 
   // Bỏ hiệu ứng hover trắng xóa ở phần tài khoản (Dropdown)
@@ -233,24 +246,24 @@
     background: #0065BD !important;
     color: #fff !important;
   }
-  // .ivu-dropdown-item,
-  // .ivu-dropdown-item span {
-  //   color: #fff !important;
-  //   background: #0065BD !important;
-  // }
-  // .ivu-dropdown-item:hover,
-  // .ivu-dropdown-item:focus,
-  // .ivu-dropdown-item-active {
-  //   color: #06cdff !important; // Màu chữ khi hover/chọn (vàng, bạn có thể đổi)
-  //   background: #258ffa !important; // Nền khi hover/chọn (đậm hơn)
-  // }
+  .ivu-dropdown-item,
+  .ivu-dropdown-item span {
+    color: #fff !important;
+    background: #0065BD !important;
+  }
+  .ivu-dropdown-item:hover,
+  .ivu-dropdown-item:focus,
+  .ivu-dropdown-item-active {
+    color: #ffd700 !important;
+    background: #00509e !important;
+  }
 
   .logo {
     margin-left: 2%;
     margin-right: 2%;
     font-size: 20px;
     float: left;
-    line-height: 56px;
+    height: 60px;
     img {
       vertical-align: middle;
     }
