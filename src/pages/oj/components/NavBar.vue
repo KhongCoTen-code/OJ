@@ -3,23 +3,23 @@
     <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" :class="oj-menu">
       <!-- <div class="logo"><span>{{website.website_name}}</span></div> -->
       <!-- <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo-ny.png" height="60px" alt="Luyện Code Online - Học lập trình tương tác trực tuyến"></a></div> -->
-      <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
+      <div class="logo" title=""><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
       
       <Menu-item name="/problem" class="white">
         <Icon type="ios-keypad" class="iconhover" ></Icon>
         {{$t('m.NavProblems')}}
       </Menu-item>
       <Menu-item name="/contest" class="white">
-        <Icon class="iconhover" type="md-trophy"></ Icon>
+        <Icon  type="md-trophy" class="iconhover"></ Icon>
         {{$t('m.Contests')}}
       </Menu-item>
       <Menu-item name="/status "class="white">
-        <Icon class="iconhover" type="ios-pulse"></ Icon>
+        <Icon  type="ios-pulse" class="iconhover"></ Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
       <Submenu name="rank" class="white">
         <template slot="title">
-          <Icon class="iconhover" type="md-podium"></ Icon>
+          <Icon  type="md-podium" class="iconhover"></ Icon>
           {{$t('m.Rank')}}
         </template>
         <Menu-item name="/acm-rank">
@@ -34,7 +34,7 @@
       </Submenu>
       <Submenu name="onlineapp" class="white">
         <template slot="title">
-          <Icon class="iconhover" type="ios-cloud" /> 
+          <Icon type="ios-cloud" class="iconhover" /> 
           {{$t('m.App')}}
         </template>
         <Menu-item name="/IDE" >
