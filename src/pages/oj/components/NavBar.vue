@@ -17,7 +17,7 @@
         <Icon type="ios-pulse"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
-      <Submenu name="rank">
+      <Submenu name="rank" class="white">
         <template slot="title">
           <Icon type="md-podium"></Icon>
           {{$t('m.Rank')}}
@@ -32,7 +32,7 @@
           {{$t('m.Experience_Ranklist')}}
         </Menu-item>
       </Submenu>
-      <Submenu name="onlineapp" class="app">
+      <Submenu name="onlineapp" class="white">
         <template slot="title">
           <Icon type="ios-cloud" />
           {{$t('m.App')}}
@@ -44,7 +44,7 @@
           {{$t('m.Forum')}}
         </Menu-item>
       </Submenu>
-      <Submenu name="about">
+      <Submenu name="about" class="white">
         <template slot="title">
           <Icon type="md-information-circle"></Icon>
           {{$t('m.About')}}
@@ -183,10 +183,8 @@
 
 
 <style lang="less" scoped>
-.ivu-menu-item,  .ivu-dropdown, .ivu-submenu, .ivu-icon  {
-  color: white !important;
-}
-.ide, .app{
+
+.white,.ivu-menu-item{
   color: white !important;
 }
 
