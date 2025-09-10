@@ -6,7 +6,7 @@
       <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
       
       <Menu-item name="/problem" class="white">
-        <Icon type="ios-keypad"></Icon>
+        <Icon type="ios-keypad" ></Icon>
         {{$t('m.NavProblems')}}
       </Menu-item>
       <Menu-item name="/contest" class="white">
@@ -60,13 +60,13 @@
         </Menu-item>
       </Submenu>
 
-      <Dropdown @on-click="switchChange" class="ivu-menu-submenu">
+      <Dropdown @on-click="switchChange" class="ivu-menu-submenu white">
         <div>
           <Icon type="ios-browsers"></Icon>
           &emsp;Đổi giao diện
           <Icon type="ios-arrow-down"></Icon>
         </div>
-        <DropdownMenu slot="list" class="white">
+        <DropdownMenu slot="list" >
           <DropdownItem name="1"><Icon type="ios-browsers" color="#2d8cf0" />&emsp;Xanh lam</DropdownItem>
           <DropdownItem name="2"><Icon type="ios-browsers" color="#f58f98" />&emsp;Hồng</DropdownItem>
           <DropdownItem name="4"><Icon type="ios-browsers" color="#d63031" />&emsp;Đỏ</DropdownItem>
@@ -186,6 +186,10 @@
 
 .white{
   color: white !important;
+}
+
+.ivu-icon:hover{
+  color: #36ebf8 !important;
 }
 
 #header {
