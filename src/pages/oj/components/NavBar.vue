@@ -6,20 +6,20 @@
       <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
       
       <Menu-item name="/problem" class="white">
-        <Icon type="ios-keypad" ></Icon>
+        <Icon type="ios-keypad" class="iconhover" ></Icon>
         {{$t('m.NavProblems')}}
       </Menu-item>
       <Menu-item name="/contest" class="white">
-        <Icon type="md-trophy"></Icon>
+        <Icon class="iconhover" type="md-trophy"></ Icon>
         {{$t('m.Contests')}}
       </Menu-item>
       <Menu-item name="/status "class="white">
-        <Icon type="ios-pulse"></Icon>
+        <Icon class="iconhover" type="ios-pulse"></ Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
       <Submenu name="rank" class="white">
         <template slot="title">
-          <Icon type="md-podium"></Icon>
+          <Icon class="iconhover" type="md-podium"></ Icon>
           {{$t('m.Rank')}}
         </template>
         <Menu-item name="/acm-rank">
@@ -34,7 +34,7 @@
       </Submenu>
       <Submenu name="onlineapp" class="white">
         <template slot="title">
-          <Icon type="ios-cloud" />
+          <Icon class="iconhover" type="ios-cloud" /> 
           {{$t('m.App')}}
         </template>
         <Menu-item name="/IDE" >
@@ -46,7 +46,7 @@
       </Submenu>
       <Submenu name="about" class="white">
         <template slot="title">
-          <Icon type="md-information-circle"></Icon>
+          <Icon type="md-informatio n-circle" class="iconhover"></Icon>
           {{$t('m.About')}}
         </template>
         <Menu-item name="/about">
@@ -62,7 +62,7 @@
 
       <Dropdown @on-click="switchChange" class="ivu-menu-submenu white">
         <div>
-          <Icon type="ios-browsers"></Icon>
+          <Icon type="ios-browsers" class="iconhover"></Icon>
           &emsp;Đổi giao diện
           <Icon type="ios-arrow-down"></Icon>
         </div>
@@ -188,7 +188,7 @@
   color: white !important;
 }
 
-.ivu-icon:hover{
+.iconhover:hover, .white:hover {
   color: #36ebf8 !important;
 }
 
@@ -258,6 +258,14 @@
 
 .ivu-btn-ghost {
   color: #36ebf8;
+}
+
+.drop-menu .ivu-btn-text,
+.drop-menu .ivu-btn-text:hover,
+.drop-menu .ivu-btn-text:focus,
+.drop-menu .ivu-btn-text:active {
+  color: #fff !important;
+  background: transparent !important;
 }
 </style>
 
