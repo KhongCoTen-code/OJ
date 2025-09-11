@@ -188,9 +188,9 @@
   color: white !important;
 }
 
-.iconhover:hover, .white:hover {
-  color: #36ebf8 !important;
-}
+// .iconhover:hover, .white:hover {
+//   color: #36ebf8 !important;
+// }
 
 #header {
   min-width: 300px;
@@ -260,6 +260,7 @@
   color: #36ebf8;
 }
 
+/*
 .drop-menu .ivu-btn-text,
 .drop-menu .ivu-btn-text:hover,
 .drop-menu .ivu-btn-text:focus,
@@ -269,6 +270,7 @@
 }
 
 // Đảm bảo mọi trạng thái của menu/submenu đều trắng
+/*
   .ivu-menu-item,
   .ivu-menu-item span,
   .ivu-menu-submenu-title,
@@ -280,12 +282,14 @@
     color: #fff !important;
     opacity: 1 !important;
   }
-
+*/
   // Đảm bảo icon trong menu cũng trắng
+  /*
   .ivu-menu-item .ivu-icon,
   .ivu-menu-submenu-title .ivu-icon,
   .ivu-menu-submenu .ivu-menu-submenu-title .ivu-icon {
     color: #fff !important;
   }
+    */
 </style>
 
