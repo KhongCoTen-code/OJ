@@ -184,12 +184,6 @@
 
 
 <style lang="less" scoped>
-
-
-.white{
-  color: white !important;
-}
-
 #header {
   min-width: 300px;
   position: fixed;
@@ -260,7 +254,9 @@
 }
 
 
-
+.white{
+  color: white !important;
+}
 /* Chỉ đổi màu tiêu đề "Giao diện" thành trắng */
 .ivu-menu-submenu > .ivu-dropdown-rel > div {
   color: #fff !important;
@@ -268,6 +264,12 @@
 
 .white:hover, .hover:hover{
    color: #36ebf8 !important;
+}
+
+/* Hover cho tiêu đề "Giao diện" và icon logo */
+.ivu-menu-submenu > .ivu-dropdown-rel > div:hover,
+.ivu-menu-submenu > .ivu-dropdown-rel > div:hover .ivu-icon {
+  color: #36ebf8 !important;
 }
 
 </style>
