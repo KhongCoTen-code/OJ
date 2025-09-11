@@ -63,7 +63,7 @@
       <Dropdown @on-click="switchChange" class="ivu-menu-submenu">
         <div>
           <Icon type="ios-browsers"></Icon>
-          &emsp;Đổi giao diện
+          &emsp;Giao diện
           <Icon type="ios-arrow-down"></Icon>
         </div>
         <DropdownMenu slot="list" >
@@ -184,6 +184,9 @@
 
 <style lang="less" scoped>
 
+:deep(.ivu-menu-submenu) {
+  color: #fff !important; /* chữ trắng */
+}
 .white{
   color: white !important;
 }
