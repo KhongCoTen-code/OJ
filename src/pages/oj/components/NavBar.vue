@@ -189,14 +189,6 @@
   color: white !important;
 }
 
-/* Màu chữ trắng cho dropdown toggle */
-.ivu-menu-submenu > div {
-  color: white !important;
-}
-
-.ivu-dropdown-item {
-  color: #fff !important;
-}
 
 
 
@@ -267,5 +259,18 @@
 .ivu-btn-ghost {
   color: #36ebf8;
 }
+
+
+/* Màu chữ trắng cho dropdown toggle */
+.ivu-menu-submenu > div {
+  color: white !important;
+}
+
+
+.ivu-menu-submenu-title,
+.ivu-dropdown-rel {
+  color: #fff !important;
+}
+
 </style>
 
