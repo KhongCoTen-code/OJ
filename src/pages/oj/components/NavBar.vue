@@ -99,7 +99,7 @@
           <Button type="text" class="drop-menu-title">{{ user.username }}
             <Icon type="md-arrow-dropdown"></Icon>
           </Button>
-          <Dropdown-menu slot="list" class="white">
+          <Dropdown-menu slot="list">
             <Dropdown-item name="/user-home">{{$t('m.MyHome')}}</Dropdown-item>
             <Dropdown-item name="/status?myself=1">{{$t('m.MySubmissions')}}</Dropdown-item>
             <Dropdown-item name="/setting/profile">{{$t('m.Settings')}}</Dropdown-item>
@@ -184,10 +184,18 @@
 
 <style lang="less" scoped>
 
-:deep(.ivu-menu-submenu) {
-  color: #fff !important; /* chữ trắng */
-}
+
 .white{
+  color: white !important;
+}
+
+/* Màu chữ trắng cho dropdown toggle */
+.ivu-menu-submenu > div {
+  color: white !important;
+}
+
+/* Màu chữ trắng cho các item trong dropdown */
+.ivu-dropdown-item {
   color: white !important;
 }
 
