@@ -6,20 +6,20 @@
       <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
       
       <Menu-item name="/problem" class="white">
-        <Icon type="ios-keypad"></Icon>
+        <Icon type="ios-keypad" class="hover"></Icon>
         {{$t('m.NavProblems')}}
       </Menu-item>
       <Menu-item name="/contest" class="white">
-        <Icon type="md-trophy"></Icon>
+        <Icon type="md-trophy"class="hover"></Icon>
         {{$t('m.Contests')}}
       </Menu-item>
       <Menu-item name="/status "class="white">
-        <Icon type="ios-pulse"></Icon>
+        <Icon type="ios-pulse" class="hover"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
       <Submenu name="rank" class="white">
         <template slot="title">
-          <Icon type="md-podium"></Icon>
+          <Icon type="md-podium" class="hover"></Icon>
           {{$t('m.Rank')}}
         </template>
         <Menu-item name="/acm-rank">
@@ -34,7 +34,8 @@
       </Submenu>
       <Submenu name="onlineapp" class="white">
         <template slot="title">
-          <Icon type="ios-cloud" />
+          <!-- <Icon type="ios-cloud" class="hover"/> -->
+          <Icon type="ios-cloud" class="hover"></Icon>
           {{$t('m.App')}}
         </template>
         <Menu-item name="/IDE" >
@@ -46,7 +47,7 @@
       </Submenu>
       <Submenu name="about" class="white">
         <template slot="title">
-          <Icon type="md-information-circle"></Icon>
+          <Icon type="md-information-circle" class="hover"></Icon>
           {{$t('m.About')}}
         </template>
         <Menu-item name="/about">
@@ -62,7 +63,7 @@
 
       <Dropdown @on-click="switchChange" class="ivu-menu-submenu">
         <div>
-          <Icon type="ios-browsers"></Icon>
+          <Icon type="ios-browsers" class="hover"></Icon>
           &emsp;Giao diện
           <Icon type="ios-arrow-down"></Icon>
         </div>
@@ -189,9 +190,6 @@
   color: white !important;
 }
 
-
-
-
 #header {
   min-width: 300px;
   position: fixed;
@@ -263,28 +261,13 @@
 
 
 
-
-// /* Chỉ đổi màu chữ trắng cho phần Đổi giao diện (Dropdown) */
-// .ivu-menu-submenu .ivu-dropdown-rel > div,
-// .ivu-menu-submenu .ivu-dropdown-rel,
-// .ivu-menu-submenu .ivu-dropdown-rel span,
-// .ivu-menu-submenu .ivu-dropdown-rel .ivu-icon,
-// .ivu-menu-submenu .ivu-dropdown-rel .ivu-icon-arrow-down,
-// .ivu-menu-submenu .ivu-dropdown-rel .ivu-icon-browsers,
-// .ivu-menu-submenu .ivu-dropdown-rel .ivu-dropdown {
-//   color: #fff !important;
-// }
-
-// /* Nếu selector trên chưa đủ, dùng thêm cho chính Dropdown */
-// .ivu-dropdown > div,
-// .ivu-dropdown span,
-// .ivu-dropdown .ivu-icon {
-//   color: #fff !important;
-// }
-
 /* Chỉ đổi màu tiêu đề "Giao diện" thành trắng */
 .ivu-menu-submenu > .ivu-dropdown-rel > div {
   color: #fff !important;
+}
+
+.white:hover, .hover:hover{
+   color: #36ebf8 !important;
 }
 
 </style>
