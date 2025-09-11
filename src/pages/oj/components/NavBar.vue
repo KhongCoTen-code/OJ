@@ -3,23 +3,23 @@
     <Menu theme="light" mode="horizontal" @on-select="handleRoute" :active-name="activeMenu" :class="oj-menu">
       <!-- <div class="logo"><span>{{website.website_name}}</span></div> -->
       <!-- <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo-ny.png" height="60px" alt="Luyện Code Online - Học lập trình tương tác trực tuyến"></a></div> -->
-      <div class="logo" title=""><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
+      <div class="logo" title="Luyện Code Online"><a href="/"><img src="/static/img/logo.png" height="60px" alt="Lỗi"></a></div>
       
       <Menu-item name="/problem" class="white">
-        <Icon type="ios-keypad" class="iconhover" ></Icon>
+        <Icon type="ios-keypad"></Icon>
         {{$t('m.NavProblems')}}
       </Menu-item>
       <Menu-item name="/contest" class="white">
-        <Icon  type="md-trophy" class="iconhover"></ Icon>
+        <Icon type="md-trophy"></Icon>
         {{$t('m.Contests')}}
       </Menu-item>
       <Menu-item name="/status "class="white">
-        <Icon  type="ios-pulse" class="iconhover"></ Icon>
+        <Icon type="ios-pulse"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
       <Submenu name="rank" class="white">
         <template slot="title">
-          <Icon  type="md-podium" class="iconhover"></ Icon>
+          <Icon type="md-podium"></Icon>
           {{$t('m.Rank')}}
         </template>
         <Menu-item name="/acm-rank">
@@ -34,7 +34,7 @@
       </Submenu>
       <Submenu name="onlineapp" class="white">
         <template slot="title">
-          <Icon type="ios-cloud" class="iconhover" /> 
+          <Icon type="ios-cloud" />
           {{$t('m.App')}}
         </template>
         <Menu-item name="/IDE" >
@@ -46,7 +46,7 @@
       </Submenu>
       <Submenu name="about" class="white">
         <template slot="title">
-          <Icon type="md-informatio n-circle" class="iconhover"></Icon>
+          <Icon type="md-information-circle"></Icon>
           {{$t('m.About')}}
         </template>
         <Menu-item name="/about">
@@ -60,10 +60,10 @@
         </Menu-item>
       </Submenu>
 
-      <Dropdown @on-click="switchChange" class="ivu-menu-submenu" style="color:white;"> 
+      <Dropdown @on-click="switchChange" class="ivu-menu-submenu">
         <div>
-          <Icon type="ios-browsers" class="iconhover"></Icon>
-          &emsp;Giao diện
+          <Icon type="ios-browsers"></Icon>
+          &emsp;Đổi giao diện
           <Icon type="ios-arrow-down"></Icon>
         </div>
         <DropdownMenu slot="list" >
@@ -99,7 +99,7 @@
           <Button type="text" class="drop-menu-title">{{ user.username }}
             <Icon type="md-arrow-dropdown"></Icon>
           </Button>
-          <Dropdown-menu slot="list" >
+          <Dropdown-menu slot="list" class="white">
             <Dropdown-item name="/user-home">{{$t('m.MyHome')}}</Dropdown-item>
             <Dropdown-item name="/status?myself=1">{{$t('m.MySubmissions')}}</Dropdown-item>
             <Dropdown-item name="/setting/profile">{{$t('m.Settings')}}</Dropdown-item>
@@ -184,14 +184,9 @@
 
 <style lang="less" scoped>
 
-
 .white{
   color: white !important;
 }
-
-// .iconhover:hover, .white:hover {
-//   color: #36ebf8 !important;
-// }
 
 #header {
   min-width: 300px;
@@ -260,37 +255,5 @@
 .ivu-btn-ghost {
   color: #36ebf8;
 }
-
-/*
-.drop-menu .ivu-btn-text,
-.drop-menu .ivu-btn-text:hover,
-.drop-menu .ivu-btn-text:focus,
-.drop-menu .ivu-btn-text:active {
-  color: #fff !important;
-  background: transparent !important;
-}
-
-// Đảm bảo mọi trạng thái của menu/submenu đều trắng
-/*
-  .ivu-menu-item,
-  .ivu-menu-item span,
-  .ivu-menu-submenu-title,
-  .ivu-menu-submenu-title span,
-  .ivu-menu-submenu .ivu-menu-submenu-title,
-  .ivu-menu-submenu .ivu-menu-submenu-title span,
-  .ivu-menu-submenu .ivu-menu-item,
-  .ivu-menu-submenu .ivu-menu-item span {
-    color: #fff !important;
-    opacity: 1 !important;
-  }
-*/
-  // Đảm bảo icon trong menu cũng trắng
-  /*
-  .ivu-menu-item .ivu-icon,
-  .ivu-menu-submenu-title .ivu-icon,
-  .ivu-menu-submenu .ivu-menu-submenu-title .ivu-icon {
-    color: #fff !important;
-  }
-    */
 </style>
 
