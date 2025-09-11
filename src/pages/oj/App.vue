@@ -11,7 +11,7 @@
         <div class="menu" style="margin-top: 10px;">
           <a href="/ide" title="Live IDE">Live IDE</a> &nbsp;&nbsp;-&nbsp;&nbsp;
           <a href="/faq" title="Câu hỏi thường gặp">FAQ</a> &nbsp;&nbsp;-&nbsp;&nbsp;
-          <a href="/judger" title="Thông tin máy chấm">Trình chấm</a> &nbsp;&nbsp;-&nbsp;&nbsp;
+          <a href="/about" title="Thông tin máy chấm">Trình chấm</a> &nbsp;&nbsp;-&nbsp;&nbsp;
           <a href="/about" title="Về chúng tôi">Giới thiệu</a>
         </div>
         <p>Powered by <a href="https://github.com/">OnlineJudge</a>&nbsp; </p>
