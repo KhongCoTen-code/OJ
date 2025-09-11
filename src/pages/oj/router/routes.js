@@ -71,7 +71,7 @@ export default [
   },
   {
     name: 'submission-details',
-    path: '/status/:id/',
+    path: '/status/:id',
     meta: {title: 'Submission Details'},
     component: SubmissionDetails
   },
