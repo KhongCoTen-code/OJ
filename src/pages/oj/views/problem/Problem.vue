@@ -3,7 +3,9 @@
     <div id="problem-main">
       <!--problem main-->
       <Panel :padding="40" shadow>
-        <div slot="title">{{problem.title}}</div>
+        <div slot="title" class="problem-title">
+          {{ problem._id ? problem._id + ' - ' : '' }}{{ problem.title }}
+        </div>
         <div id="problem-content" class="markdown-body" v-katex>
           <p class="title">{{$t('m.Description')}}</p>
           <p class="content" v-html=problem.description></p>
@@ -642,4 +644,10 @@
     width: 500px;
     height: 480px;
   }
+
+  .problem-title {
+    text-align: center;
+    font-size: 24px;
+     }
 </style>
+
