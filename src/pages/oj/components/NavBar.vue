@@ -189,21 +189,22 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: 60px; // Đặt chiều cao cố định
+  height: 60px; /* Đặt chiều cao cố định */
   width: 100%;
   z-index: 1000;
-  background-color: #0091CE;
+  /* background-color: #0091CE; */
+  background: linear-gradient(90deg, #3f87a6, #654ea3, #ea4c89);
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
-  .oj-menu, .ivu-menu, .ivu-menu-horizontal {
-    background: #0091CE;
-    height: 60px !important; // Đặt chiều cao menu
-    line-height: 60px !important; // Căn giữa các item
-    border-bottom: none !important; // Xóa đường kẻ mặc định
-    margin-bottom: 0 !important; // Xóa khoảng trắng dưới
-    box-shadow: none !important;
-  }
+.oj-menu, .ivu-menu, .ivu-menu-horizontal {
+  background: transparent; /* cho menu trong suốt để lộ gradient */
+  height: 60px !important;
+  line-height: 60px !important;
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+}
 
   .logo {
     margin-left: 2%;
