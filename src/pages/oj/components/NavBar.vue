@@ -13,7 +13,7 @@
         <Icon type="md-trophy"class="hover"></Icon>
         {{$t('m.Contests')}}
       </Menu-item>
-      <Menu-item name="/status "class="white">
+      <Menu-item name="/status" class="white">
         <Icon type="ios-pulse" class="hover"></Icon>
         {{$t('m.NavStatus')}}
       </Menu-item>
