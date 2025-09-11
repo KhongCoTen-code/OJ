@@ -6,7 +6,6 @@ import { STORAGE_KEY } from '@/utils/constants'
 import { sync } from 'vuex-router-sync'
 import { types, default as store } from '../../../store'
 
-
 Vue.use(VueRouter)
 
 const router = new VueRouter({
