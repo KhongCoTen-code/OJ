@@ -9,7 +9,7 @@
     <div id="problem-main">
       <!--problem main-->
       <Panel :padding="40" shadow>
-        <div class="report"><a title="Báo lỗi bài tập này" target="_blank" onclick="event.preventDefault();window.open('https://github.com/luyencode/comments/issues/365', '_blank');" rel="noreferrer nofollow noopener"><i class="ivu-icon ivu-icon-md-bug"></i> {{$t('m.Report')}}</a></div>
+        <!-- <div class="report"><a title="Báo lỗi bài tập này" target="_blank" onclick="event.preventDefault();window.open('https://', '_blank');" rel="noreferrer nofollow noopener"><i class="ivu-icon ivu-icon-md-bug"></i> {{$t('m.Report')}}</a></div> -->
         <h2 slot="title" class="problem-title">{{problem._id}} - {{problem.title}}</h2>
         <div id="problem-content" class="markdown-body" v-katex>
           <h3 class="title">{{$t('m.Description')}}</h3>
@@ -116,7 +116,7 @@
           </Col>
         </Row>
       </Card>
-      <Card :padding="20" dis-hover>
+      <!-- <Card :padding="20" dis-hover>
         <h3 style="font-size: 20px;">Bình luận</h3>
         <ul style="margin-left: 30px;margin-top: 20px;">
           <li><a rel="nofollow noopener noreferrer" target="_blank" class="animation-text" href="https://gist.github.com/nguyenvanhieuvn/d3e5e20c44ef9d565fa3d7b9ebabfc65">Quy tắc thảo luận &#38; hướng dẫn đăng bình luận ✍️</a></li>
@@ -132,7 +132,21 @@
           </li>
         </ul>
         <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="url" theme="github-light" crossorigin="anonymous" async> </script>
+      </Card> -->
+
+      <Card :padding="20" dis-hover>
+        <h3 style="font-size: 20px;">Gợi ý học tập</h3>
+        <ul style="margin-left: 30px;margin-top: 20px;">
+          <li>Ôn lại kiến thức cơ bản trước khi thử sức với bài toán.</li>
+          <li>Hãy thử nhiều cách giải khác nhau để tối ưu chương trình.</li>
+          <li>Nếu gặp khó khăn, hãy tham khảo tài liệu hoặc thảo luận với bạn bè.</li>
+          <li>Đặt mục tiêu làm thêm các bài tập tương tự để rèn luyện kỹ năng.</li>
+        </ul>
+        <script type="application/javascript" src="https://utteranc.es/client.js" repo="luyencode/comments" issue-term="url" theme="github-light" crossorigin="anonymous" async> </script>
       </Card>
+
+
+
     </div>
     <div id="right-column">
       <VerticalMenu @on-click="handleRoute" style="cursor: pointer;">
@@ -236,7 +250,7 @@
           </li>
         </ul>
       </Card>
-      <Card style="margin-top: 20px;" :padding="10" v-if="!this.contestID || OIContestRealTimePermission">
+      <!-- <Card style="margin-top: 20px;" :padding="10" v-if="!this.contestID || OIContestRealTimePermission">
         <div slot="title" style="font-size: 16px;"><i data-v-20c86fbe="" class="ivu-icon ivu-icon-md-heart" style="color: red; font-size:1.2em;"></i>
         <span class="card-title">Ủng hộ Luyện Code</span>
         </div>
@@ -247,7 +261,7 @@
           <li style="padding: 5px 0px;"><span style="color: green;">Paypal</span>: <a style="color: #495060;" target="_blank" href="https://www.paypal.me/nguyenvanhieuvn">paypal.me/nguyenvanhieuvn</a></li>
         </ul>
         Nếu thấy website hữu ích, hãy chia sẻ tới bạn bè để cùng nhau học tập và tiến bộ mỗi ngày nhé!
-      </Card>
+      </Card> -->
     </div>
   
     <Modal v-model="graphVisible">
