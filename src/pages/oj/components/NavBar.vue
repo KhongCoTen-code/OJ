@@ -60,10 +60,10 @@
         </Menu-item>
       </Submenu>
 
-      <Dropdown @on-click="switchChange" class="ivu-menu-submenu white">
+      <Dropdown @on-click="switchChange" class="ivu-menu-submenu" style="color:white;"> 
         <div>
           <Icon type="ios-browsers" class="iconhover"></Icon>
-          &emsp;Đổi giao diện
+          &emsp;Giao diện
           <Icon type="ios-arrow-down"></Icon>
         </div>
         <DropdownMenu slot="list" >
@@ -99,7 +99,7 @@
           <Button type="text" class="drop-menu-title">{{ user.username }}
             <Icon type="md-arrow-dropdown"></Icon>
           </Button>
-          <Dropdown-menu slot="list" class="white">
+          <Dropdown-menu slot="list" >
             <Dropdown-item name="/user-home">{{$t('m.MyHome')}}</Dropdown-item>
             <Dropdown-item name="/status?myself=1">{{$t('m.MySubmissions')}}</Dropdown-item>
             <Dropdown-item name="/setting/profile">{{$t('m.Settings')}}</Dropdown-item>
@@ -183,6 +183,7 @@
 
 
 <style lang="less" scoped>
+
 
 .white{
   color: white !important;
