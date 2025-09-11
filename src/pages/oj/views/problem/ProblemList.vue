@@ -1,74 +1,72 @@
 <template>
   <Row type="flex" :gutter="18">
     <Col :span=19>
-    <Panel shadow>
-      <div slot="title">{{$t('m.Problem_List')}}</div>
-      <div slot="extra">
-        <ul class="filter">
-          <li>
-            <Dropdown @on-click="filterByDifficulty">
-              <span>{{query.difficulty === '' ? this.$i18n.t('m.Difficulty') : this.$i18n.t('m.' + query.difficulty)}}
-                <Icon type="md-arrow-dropdown"></Icon>
-              </span>
-              <Dropdown-menu slot="list">
-                <Dropdown-item name="">{{$t('m.All')}}</Dropdown-item>
-                <Dropdown-item name="Low">{{$t('m.Low')}}</Dropdown-item>
-                <Dropdown-item name="Mid" >{{$t('m.Mid')}}</Dropdown-item>
-                <Dropdown-item name="High">{{$t('m.High')}}</Dropdown-item>
-              </Dropdown-menu>
-            </Dropdown>
-          </li>
-          <li>
-            <i-switch size="large" @on-change="handleTagsVisible">
-              <span slot="open">{{$t('m.Tags')}}</span>
-              <span slot="close">{{$t('m.Tags')}}</span>
-            </i-switch>
-          </li>
-          <li>
-            <Input v-model="query.keyword"
-                   @on-enter="filterByKeyword"
-                   @on-click="filterByKeyword"
-                   placeholder="keyword"
-                   icon="ios-search"/>
-          </li>
-          <li>
-            <Button type="info" @click="onReset">
-              <Icon type="md-refresh"></Icon>
-              {{$t('m.Reset')}}
-            </Button>
-          </li>
-        </ul>
-      </div>
-      <Table style="width: 100%; font-size: 16px;"
-             :columns="problemTableColumns"
-             :data="problemList"
-             :loading="loadings.table"
-             disabled-hover></Table>
-    </Panel>
-    <Pagination
-      :total="total" :page-size.sync="query.limit" @on-change="pushRouter" @on-page-size-change="pushRouter" :current.sync="query.page" :show-sizer="true"></Pagination>
-
+      <Panel shadow>
+        <div slot="title">{{$t('m.Problem_List')}}</div>
+        <div slot="extra">
+          <ul class="filter">
+            <li>
+              <Dropdown @on-click="filterByDifficulty" style="cursor:pointer;">
+                <span>{{query.difficulty === '' ? this.$i18n.t('m.Difficulty') : this.$i18n.t('m.' + query.difficulty)}}
+                  <Icon type="md-arrow-dropdown"></Icon>
+                </span>
+                <Dropdown-menu slot="list">
+                  <Dropdown-item name="">{{$t('m.All')}}</Dropdown-item>
+                  <Dropdown-item name="Low">{{$t('m.Low')}}</Dropdown-item>
+                  <Dropdown-item name="Mid" >{{$t('m.Mid')}}</Dropdown-item>
+                  <Dropdown-item name="High">{{$t('m.High')}}</Dropdown-item>
+                </Dropdown-menu>
+              </Dropdown>
+            </li>
+            <li>
+              <i-switch size="large" @on-change="handleTagsVisible">
+                <span slot="open">{{$t('m.Tags')}}</span>
+                <span slot="close">{{$t('m.Tags')}}</span>
+              </i-switch>
+            </li>
+            <li>
+              <Input v-model="query.keyword"
+                    @on-enter="filterByKeyword"
+                    @on-click="filterByKeyword"
+                    placeholder="Từ khóa"
+                    icon="ios-search"/>
+            </li>
+            <li>
+              <Button type="info" @click="onReset">
+                <Icon type="md-refresh"></Icon>
+                {{$t('m.Reset')}}
+              </Button>
+            </li>
+          </ul>
+        </div>
+        <Table style="width: 100%; font-size: 16px;"
+              :columns="problemTableColumns"
+              @on-sort-change="handleSortChange"
+              :data="problemList"
+              :loading="loadings.table"
+              disabled-hover></Table>
+      </Panel>
+      <Pagination :total="total" :page-size="limit" @on-change="pushRouter" :current.sync="query.page"></Pagination>
     </Col>
 
     <Col :span="5">
-    <Panel :padding="10">
-      <div slot="title" class="taglist-title">{{$t('m.Tags')}}</div>
-      <Button long id="pick-one" @click="pickone">
-        <Icon type="shuffle"></Icon>
-        {{$t('m.Pick_One')}}
-      </Button>
-      <br>
+      <Panel :padding="10">
+        <div slot="title" class="taglist-title"><Icon type="md-pricetags" /> {{$t('m.TagsTitle')}}</div>
+        <Button long id="pick-one" @click="pickone">
+          <Icon type="shuffle"></Icon>
+          {{$t('m.Pick_One')}}
+        </Button>
+        <br>
 
-      <Button v-for="tag in tagList"
-              :key="tag.name"
-              @click="filterByTag(tag.name)"
-              type="ghost"
-              :disabled="query.tag === tag.name"
-              shape="circle"
-              class="tag-btn">{{tag.name}}
-      </Button>
-    </Panel>
-    <Spin v-if="loadings.tag" fix size="large"></Spin>
+        <Button v-for="tag in tagList"
+                :key="tag.name"
+                @click="filterByTag(tag.name)"
+                :disabled="query.tag === tag.name"
+                shape="circle"
+                class="tag-btn">{{tag.name}}
+        </Button>
+      </Panel>
+      <Spin v-if="loadings.tag" fix size="large"></Spin>
     </Col>
   </Row>
 </template>
@@ -91,22 +89,22 @@
         tagList: [],
         problemTableColumns: [
           {
-            title: '#',
+            title: 'ID',
             key: '_id',
-            width: 98,
+            width: 120,
             render: (h, params) => {
-              return h('Button', {
+              return h('a', {
                 props: {
                   type: 'text',
                   size: 'large'
                 },
-                on: {
-                  click: () => {
-                    this.$router.push({name: 'problem-details', params: {problemID: params.row._id}})
-                  }
+                attrs: {
+                  href: '/problem/' + params.row._id
                 },
                 style: {
-                  padding: '2px 0'
+                  'padding': '2px 0px',
+                  fontSize: '14px',
+                  color: '#495060'
                 }
               }, params.row._id)
             }
@@ -115,21 +113,23 @@
             title: this.$i18n.t('m.Title'),
             width: 400,
             render: (h, params) => {
-              return h('Button', {
+              return h('a', {
                 props: {
                   type: 'text',
                   size: 'large'
                 },
-                on: {
-                  click: () => {
-                    this.$router.push({name: 'problem-details', params: {problemID: params.row._id}})
-                  }
+                attrs: {
+                  href: '/problem/' + params.row._id
                 },
                 style: {
                   padding: '2px 0',
-                  overflowX: 'auto',
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
                   textAlign: 'left',
-                  width: '100%'
+                  width: '95%',
+                  fontSize: '14px',
+                  color: '#495060'
                 }
               }, params.row.title)
             }
@@ -149,13 +149,16 @@
             }
           },
           {
+            sortable: 'custom',
             title: this.$i18n.t('m.Total'),
             key: 'submission_number'
           },
           {
-            title: this.$i18n.t('m.AC_Rate'),
+            sortable: 'custom',
+            title: this.$i18n.t('m.AC_Count'),
+            key: 'accepted_number',
             render: (h, params) => {
-              return h('span', this.getACRate(params.row.accepted_number, params.row.submission_number))
+              return h('span', params.row.accepted_number)
             }
           }
         ],
@@ -172,7 +175,7 @@
           difficulty: '',
           tag: '',
           page: 1,
-          limit: 10
+          orderby: null
         }
       }
     },
@@ -190,7 +193,7 @@
         if (this.query.page < 1) {
           this.query.page = 1
         }
-        this.query.limit = parseInt(query.limit) || 10
+        this.query.limit = parseInt(query.limit) || this.limit
         if (!simulate) {
           this.getTagList()
         }
@@ -209,6 +212,9 @@
           this.loadings.table = false
           this.total = res.data.data.total
           this.problemList = res.data.data.results
+          for (let i = 0; i < this.problemList.length; i++) {
+            this.problemList[i].ac_rate = this.problemList[i].submission_number === 0 ? 0.00 : (this.problemList[i].accepted_number / this.problemList[i].submission_number * 100)
+          }
           if (this.isAuthenticated) {
             this.addStatusColumn(this.problemTableColumns, res.data.data.results)
           }
@@ -219,6 +225,7 @@
       getTagList () {
         api.getProblemTagList().then(res => {
           this.tagList = res.data.data.sort((a, b) => {
+            // return a.id - b.id
             return a.name.localeCompare(b.name)
           })
           this.loadings.tag = false
@@ -226,18 +233,30 @@
           this.loadings.tag = false
         })
       },
+      handleSortChange (data) {
+        let key = data['key']
+        if (data['order'] === 'desc') {
+          key = '-' + key
+        }
+        if (data['order'] !== 'normal') {
+          this.query.orderby = key
+        } else {
+          this.query.orderby = null
+        }
+        this.pushRouter()
+      },
       filterByTag (tagName) {
         this.query.tag = tagName
-        this.query.page = 1
+        this.query.page = null
         this.pushRouter()
       },
       filterByDifficulty (difficulty) {
         this.query.difficulty = difficulty
-        this.query.page = 1
+        this.query.page = null
         this.pushRouter()
       },
       filterByKeyword () {
-        this.query.page = 1
+        this.query.page = null
         this.pushRouter()
       },
       handleTagsVisible (value) {
@@ -267,7 +286,7 @@
       },
       pickone () {
         api.pickone().then(res => {
-          this.$success('Good Luck')
+          this.$success('Chúc AC nhé ^^')
           this.$router.push({name: 'problem-details', params: {problemID: res.data.data}})
         })
       }
