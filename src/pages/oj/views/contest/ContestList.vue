@@ -2,11 +2,11 @@
   <Row type="flex">
     <Col :span="24">
     <Panel id="contest-card" shadow>
-      <div slot="title">{{query.rule_type === '' ? this.$i18n.t('m.All') : query.rule_type}} {{$t('m.Contests')}}</div>
+      <div slot="title">{{query.rule_type === '' ? this.$i18n.t('m.All') : query.rule_type}} {{$t('m.Contests').toLowerCase()}}</div>
       <div slot="extra">
         <ul class="filter">
           <li>
-            <Dropdown @on-click="onRuleChange">
+            <Dropdown style="cursor:pointer;" @on-click="onRuleChange">
               <span>{{query.rule_type === '' ? this.$i18n.t('m.Rule') : this.$i18n.t('m.' + query.rule_type)}}
                 <Icon type="md-arrow-dropdown"></Icon>
               </span>
@@ -18,7 +18,7 @@
             </Dropdown>
           </li>
           <li>
-            <Dropdown @on-click="onStatusChange">
+            <Dropdown style="cursor:pointer;" @on-click="onStatusChange">
               <span>{{query.status === '' ? this.$i18n.t('m.Status') : this.$i18n.t('m.' + CONTEST_STATUS_REVERSE[query.status].name.replace(/ /g,"_"))}}
                 <Icon type="md-arrow-dropdown"></Icon>
               </span>
@@ -32,7 +32,7 @@
           </li>
           <li>
             <Input id="keyword" @on-enter="changeRoute" @on-click="changeRoute" v-model="query.keyword"
-                   icon="ios-search" placeholder="Keyword"/>
+                   icon="ios-search" placeholder="Từ khóa"/>
           </li>
         </ul>
       </div>
@@ -73,7 +73,7 @@
         </li>
       </ol>
     </Panel>
-    <Pagination :total="total" :page-size.sync="limit" @on-change="changeRoute" :current.sync="page" :show-sizer="true" @on-page-size-change="changeRoute"></Pagination>
+    <Pagination :total="total" :pageSize="limit" @on-change="getContestList" :current.sync="page"></Pagination>
     </Col>
   </Row>
 
@@ -142,7 +142,6 @@
         let query = Object.assign({}, this.query)
         query.page = this.page
         query.limit = this.limit
-
         this.$router.push({
           name: 'contest-list',
           query: utils.filterEmptyValue(query)

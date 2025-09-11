@@ -9,7 +9,7 @@
       <div class="flex-container" v-if="route_name === 'contest-details'">
         <template>
           <div id="contest-desc">
-            <Panel :padding="20" shadow>
+            <Panel :padding="25" shadow>
               <div slot="title">
                 {{contest.title}}
               </div>
@@ -42,7 +42,7 @@
 
         <VerticalMenu-item :disabled="contestMenuDisabled"
                            :route="{name: 'contest-announcement-list', params: {contestID: contestID}}">
-          <Icon type="md-chatbubbles"></Icon>
+          <Icon type="md-chatbubble-working"></Icon>
           {{$t('m.Announcements')}}
         </VerticalMenu-item>
 
@@ -215,8 +215,9 @@
     }
     #contest-menu {
       flex: none;
-      width: 210px;
+      width: 300px;
       margin-left: 20px;
+      cursor: pointer;
     }
     .contest-password {
       margin-top: 20px;
