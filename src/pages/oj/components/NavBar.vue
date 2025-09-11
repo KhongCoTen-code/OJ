@@ -194,10 +194,11 @@
   color: white !important;
 }
 
-/* Màu chữ trắng cho các item trong dropdown */
 .ivu-dropdown-item {
-  color: white !important;
+  color: #fff !important;
 }
+
+
 
 #header {
   min-width: 300px;
