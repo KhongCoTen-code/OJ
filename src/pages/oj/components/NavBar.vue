@@ -202,6 +202,7 @@
   z-index: 1000;
   background-color: #0091CE;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+}
 
   .oj-menu, .ivu-menu, .ivu-menu-horizontal {
     background: #0091CE;
@@ -247,7 +248,7 @@
       font-size: 18px;
     }
   }
-}
+
 
 .modal {
   &-title {
@@ -261,14 +262,28 @@
 }
 
 
-/* Màu chữ trắng cho dropdown toggle */
-.ivu-menu-submenu > div {
-  color: white !important;
-}
 
 
-.ivu-menu-submenu-title,
-.ivu-dropdown-rel {
+// /* Chỉ đổi màu chữ trắng cho phần Đổi giao diện (Dropdown) */
+// .ivu-menu-submenu .ivu-dropdown-rel > div,
+// .ivu-menu-submenu .ivu-dropdown-rel,
+// .ivu-menu-submenu .ivu-dropdown-rel span,
+// .ivu-menu-submenu .ivu-dropdown-rel .ivu-icon,
+// .ivu-menu-submenu .ivu-dropdown-rel .ivu-icon-arrow-down,
+// .ivu-menu-submenu .ivu-dropdown-rel .ivu-icon-browsers,
+// .ivu-menu-submenu .ivu-dropdown-rel .ivu-dropdown {
+//   color: #fff !important;
+// }
+
+// /* Nếu selector trên chưa đủ, dùng thêm cho chính Dropdown */
+// .ivu-dropdown > div,
+// .ivu-dropdown span,
+// .ivu-dropdown .ivu-icon {
+//   color: #fff !important;
+// }
+
+/* Chỉ đổi màu tiêu đề "Giao diện" thành trắng */
+.ivu-menu-submenu > .ivu-dropdown-rel > div {
   color: #fff !important;
 }
 
