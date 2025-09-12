@@ -16,7 +16,7 @@ export const m = {
   Export_Import_Problem: 'Export Or Import Problem',
   Contest: 'Contest',
   Contest_List: 'Contest List',
-  Create_Contest: 'Create Contest',
+  Create_Contest: 'Tạo kỳ thi',
   AboutUs: 'About Us',
   // User.vue
   User_User: 'User',
@@ -107,7 +107,7 @@ export const m = {
   Tag: 'Tag',
   New_Tag: 'New Tag',
   // ProblemList.vue
-  Contest_Problem_List: 'Contest Problem List',
+  Contest_Problem_List: 'Danh sách kỳ thi',
   // Contest.vue
   ContestTitle: 'Title',
   ContestDescription: 'Description',

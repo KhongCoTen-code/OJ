@@ -93,7 +93,7 @@
     },
     data () {
       return {
-        title: 'Create Contest',
+        title: 'Tạo kỳ thi',
         disableRuleType: false,
         contest: {
           title: '',
