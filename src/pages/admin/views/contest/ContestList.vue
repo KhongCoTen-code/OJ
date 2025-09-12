@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <Panel title="Contest List">
+    <Panel title="Danh sách kỳ thi">
       <div slot="header">
         <el-input
           v-model="keyword"

@@ -71,7 +71,7 @@ export const m = {
   // PruneTestCase
   Test_Case_Prune_Test_Case: 'Dọn test case',
   // Problem.vue
-  Display_ID: 'Display ID',
+  Display_ID: 'ID hiển thị',
   Title: 'Tiêu đề',
   Description: 'Đề bài',
   Input_Description: 'Dữ liệu vào',
@@ -110,13 +110,13 @@ export const m = {
   // ProblemList.vue
   Contest_Problem_List: 'Contest Problem List',
   // Contest.vue
-  ContestTitle: 'Title',
-  ContestDescription: 'Description',
-  Contest_Start_Time: 'Start Time',
-  Contest_End_Time: 'End Time',
-  Contest_Password: 'Password',
-  Contest_Rule_Type: 'Contest Rule Type',
-  Real_Time_Rank: 'Real Time Rank',
+  ContestTitle: 'Tiêu đề',
+  ContestDescription: 'Mô tả',
+  Contest_Start_Time: 'Thời gian bắt đầu',
+  Contest_End_Time: 'Thời gian kết thúc',
+  Contest_Password: 'Mật khẩu',
+  Contest_Rule_Type: 'Cách tính điểm',
+  Real_Time_Rank: 'Xếp hạng trực tiếp',
   Contest_Status: 'Trạng thái',
   Allowed_IP_Ranges: 'Allowed IP Ranges',
   CIDR_Network: 'CIDR Network',

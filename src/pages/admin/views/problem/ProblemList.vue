@@ -22,7 +22,7 @@
         </el-table-column>
         <el-table-column
           width="150"
-          label="Display ID">
+          label="Hiển thị ID">
           <template slot-scope="{row}">
             <span v-show="!row.isEditing">{{row._id}}</span>
             <el-input v-show="row.isEditing" v-model="row._id"
@@ -33,7 +33,7 @@
         </el-table-column>
         <el-table-column
           prop="title"
-          label="Title">
+          label="Tiêu đề">
           <template slot-scope="{row}">
             <span v-show="!row.isEditing">{{row.title}}</span>
             <el-input v-show="row.isEditing" v-model="row.title"
@@ -43,7 +43,7 @@
         </el-table-column>
         <el-table-column
           prop="created_by.username"
-          label="Author">
+          label="Tạo bởi">
         </el-table-column>
         <el-table-column
           width="200"
