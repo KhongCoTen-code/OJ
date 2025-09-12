@@ -11,7 +11,7 @@
           <el-table-column
             width="100"
             prop="id"
-            label="Mã">
+            label="Id">
           </el-table-column>
           <el-table-column
             prop="title"
