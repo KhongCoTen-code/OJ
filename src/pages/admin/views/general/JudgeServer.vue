@@ -23,7 +23,7 @@
         </el-table-column>
         <el-table-column
           prop="status"
-          label="Status">
+          label="Trạng thái">
           <template slot-scope="scope">
             <el-tag
               :type="scope.row.status === 'normal' ? 'success' : 'danger'">
@@ -37,7 +37,7 @@
         </el-table-column>
         <el-table-column
           prop="task_number"
-          label="Task Number">
+          label="Số tác vụ">
         </el-table-column>
         <el-table-column
           prop="cpu_core"
@@ -50,17 +50,17 @@
         </el-table-column>
         <el-table-column
           prop="memory_usage"
-          label="Memory Usage">
+          label="Bộ nhớ sử dụng">
           <template slot-scope="scope">{{ scope.row.memory_usage }}%</template>
         </el-table-column>
-        <el-table-column label="Disabled">
+        <el-table-column label="Vô hiệu hóa">
           <template slot-scope="{row}">
             <el-switch v-model="row.is_disabled" @change="handleDisabledSwitch(row.id, row.is_disabled)"></el-switch>
           </template>
         </el-table-column>
         <el-table-column
           fixed="right"
-          label="Options">
+          label="Tùy chọn">
           <template slot-scope="scope">
             <icon-btn name="Delete" icon="trash" @click.native="deleteJudgeServer(scope.row.hostname)"></icon-btn>
           </template>

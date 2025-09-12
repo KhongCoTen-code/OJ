@@ -23,7 +23,8 @@
         style="width: 100%">
         <el-table-column type="selection" width="55"></el-table-column>
 
-        <el-table-column prop="id" label="ID"></el-table-column>
+        <!-- <el-table-column prop="id" label="ID"></el-table-column> -->
+        <el-table-column prop="id" label="ID" min-width="50"></el-table-column>
 
         <el-table-column prop="username" label="Tên đăng nhập"></el-table-column>
 
