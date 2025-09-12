@@ -6,7 +6,7 @@ export const m = {
   Announcement: 'Thông báo',
   System_Config: 'Cấu hình hệ thống',
   Judge_Server: 'Máy chấm',
-  Prune_Test_Case: 'Prune Test Case',
+  Prune_Test_Case: 'Dọn test case',
   Problem: 'Bài tập',
   FromFile: 'From File',
   ToFile: 'To File',

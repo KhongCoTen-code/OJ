@@ -22,21 +22,21 @@
           prop="id">
         </el-table-column>
         <el-table-column
-          label="DisplayID"
+          label="Id bài"
           width="200"
           prop="_id">
         </el-table-column>
         <el-table-column
-          label="Title"
+          label="Tiêu đề"
           prop="title">
         </el-table-column>
         <el-table-column
           prop="created_by.username"
-          label="Author">
+          label="Tạo bởi">
         </el-table-column>
         <el-table-column
           prop="create_time"
-          label="Create Time">
+          label="Tạo lúc">
           <template slot-scope="scope">
             {{scope.row.create_time | localtime }}
           </template>
@@ -56,7 +56,7 @@
         </el-pagination>
       </div>
     </panel>
-    <panel title="Import QDUOJ Problems (beta)">
+    <panel title="Import Problems (beta)">
       <el-upload
         ref="QDU"
         action="/api/admin/import_problem"

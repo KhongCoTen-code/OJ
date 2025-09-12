@@ -48,7 +48,7 @@
         <el-table-column
           width="200"
           prop="create_time"
-          label="Create Time">
+          label="Tạo lúc">
           <template slot-scope="scope">
             {{scope.row.create_time | localtime }}
           </template>
@@ -56,7 +56,7 @@
         <el-table-column
           width="100"
           prop="visible"
-          label="Visible">
+          label="Hiển thị">
           <template slot-scope="scope">
             <el-switch v-model="scope.row.visible"
                        active-text=""
@@ -67,7 +67,7 @@
         </el-table-column>
         <el-table-column
           fixed="right"
-          label="Operation"
+          label="Thao tác"
           width="250">
           <div slot-scope="scope">
             <icon-btn name="Edit" icon="edit" @click.native="goEdit(scope.row.id)"></icon-btn>

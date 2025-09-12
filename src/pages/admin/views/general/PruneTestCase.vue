@@ -9,17 +9,17 @@
       </span>
       <el-table :data="data">
         <el-table-column
-          label="Last Modified">
+          label="Chỉnh sửa lần cuối">
           <template slot-scope="{row}">
             {{row.create_time | timestampFormat }}
           </template>
         </el-table-column>
         <el-table-column
           prop="id"
-          label="Test Case ID">
+          label="Mã Test Case">
         </el-table-column>
         <el-table-column
-          label="Option"
+          label="Tùy chọn"
           fixed="right"
           width="200">
           <template slot-scope="{row}">
