@@ -211,7 +211,7 @@
     margin-right: 2%;
     font-size: 20px;
     float: left;
-    line-height: 56px;
+   // line-height: 56px;
     img {
       vertical-align: middle;
       // height: 40px; // Giảm chiều cao logo
