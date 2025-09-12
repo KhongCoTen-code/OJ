@@ -34,7 +34,7 @@
           </template>
         </el-table-column>
 
-        <el-table-column prop="last_login" label="Đăng nhập lần cuối">
+        <el-table-column prop="last_login" label="Login lần cuối">
           <template slot-scope="scope">
             {{scope.row.last_login | localtime }}
           </template>

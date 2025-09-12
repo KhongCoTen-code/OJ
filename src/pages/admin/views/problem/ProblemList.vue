@@ -22,7 +22,7 @@
         </el-table-column>
         <el-table-column
           width="150"
-          label="Hiển thị ID">
+          label="ID hiển thị">
           <template slot-scope="{row}">
             <span v-show="!row.isEditing">{{row._id}}</span>
             <el-input v-show="row.isEditing" v-model="row._id"
